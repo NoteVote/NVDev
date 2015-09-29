@@ -16,6 +16,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     private let sessionHandler = SessionHandler()
     private let authController = SpotifyAuth()
     private let spotifyAuthenticator = SPTAuth.defaultInstance()
+    private var currentSession: SPTSession? = nil
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
@@ -27,7 +28,8 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     
     func authenticationViewController(authenticationViewController: SPTAuthViewController!, didLoginWithSession session: SPTSession!) {
         print("Login Successful")
-        storeSession(session)
+        setSession(session)
+        performSegueWithIdentifier("segueOne", sender: nil)
     }
     
     func authenticationViewControllerDidCancelLogin(authenticationViewController: SPTAuthViewController!) {
@@ -61,10 +63,14 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     
     // _____ Additional Methods _____
     
-    func storeSession(session: SPTSession) {
-        
-        sessionHandler.storeSession(session)
-        
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueOne"){
+            sessionHandler.storeSession(currentSession!)
+        }
+    }
+    
+    func setSession(session: SPTSession) {
+        currentSession = session
     }
 
 
@@ -77,7 +83,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
         
         if (session != nil) {
             if (session!.isValid()) {
-                print("session is valid")
+                setSession(session!)
             } else {
                 print("reauthorize")
             }
@@ -85,6 +91,14 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     
     }
 
+    override func viewDidAppear(animated: Bool) {
+        if (currentSession != nil) {
+            if (currentSession!.isValid()) {
+                performSegueWithIdentifier("segueOne", sender: nil)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
