@@ -39,7 +39,7 @@
 		918A22CF1BB1BAFC00CE76AF /* NVBeta.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVBeta.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A22D31BB1BAFC00CE76AF /* Spot_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot_testTests.swift; sourceTree = "<group>"; };
 		918A22D51BB1BAFC00CE76AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		918A22DF1BB1BB8200CE76AF /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = "../ios-sdk-beta-10/Spotify.framework"; sourceTree = "<group>"; };
+		918A22DF1BB1BB8200CE76AF /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		918A22E51BB1BCEA00CE76AF /* Spot_test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spot_test-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -69,9 +69,7 @@
 		918A22B21BB1BAFB00CE76AF = {
 			isa = PBXGroup;
 			children = (
-				918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */,
-				918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */,
-				918A22DE1BB1BB8200CE76AF /* ios-sdk-beta-10 */,
+				918A22DE1BB1BB8200CE76AF /* Frameworks */,
 				918A22BD1BB1BAFB00CE76AF /* Spot_test */,
 				918A22D21BB1BAFC00CE76AF /* Spot_testTests */,
 				918A22BC1BB1BAFB00CE76AF /* Products */,
@@ -90,7 +88,6 @@
 		918A22BD1BB1BAFB00CE76AF /* Spot_test */ = {
 			isa = PBXGroup;
 			children = (
-				918A22DF1BB1BB8200CE76AF /* Spotify.framework */,
 				918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */,
 				918A22C01BB1BAFB00CE76AF /* ViewController.swift */,
 				918A22C21BB1BAFB00CE76AF /* Main.storyboard */,
@@ -111,10 +108,14 @@
 			path = Spot_testTests;
 			sourceTree = "<group>";
 		};
-		918A22DE1BB1BB8200CE76AF /* ios-sdk-beta-10 */ = {
+		918A22DE1BB1BB8200CE76AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */,
+				918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */,
+				918A22DF1BB1BB8200CE76AF /* Spotify.framework */,
 			);
+			name = Frameworks;
 			path = "ios-sdk-beta-10";
 			sourceTree = "<group>";
 		};
@@ -168,6 +169,11 @@
 				TargetAttributes = {
 					918A22BA1BB1BAFB00CE76AF = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					918A22CE1BB1BAFC00CE76AF = {
 						CreatedOnToolsVersion = 7.0;
@@ -425,6 +431,7 @@
 				918A22DA1BB1BAFC00CE76AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		918A22DB1BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NVBetaTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +440,7 @@
 				918A22DD1BB1BAFC00CE76AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
