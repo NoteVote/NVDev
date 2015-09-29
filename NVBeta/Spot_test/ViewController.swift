@@ -1,53 +1,33 @@
 //
 //  ViewController.swift
-//  Spot_test
+//  
+//  This class is a view controller for the login screen and handles user login.
 //
-//  Created by uics15 on 9/22/15.
-//  Copyright © 2015 uiowa. All rights reserved.
+//  Created by Aaron Kaplan on 9/22/15.
+//  Copyright © 2015 NoteVote. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPlaybackDelegate {
+class ViewController: UIViewController, SPTAuthViewDelegate {
 
-    let kClientID = "ddf55f7bf8ec47e1a9a998c53207adb2"
-    let kCallbackURL = "notevote-login://callback"
-    let kTokenSwapURL = "http://localhost:1234/swap"
-    let kTokenRefreshURL = "http://localhost:1234/refresh"
-
+    // _____ Declarations _____
     
-    var player: SPTAudioStreamingController?
-    let spotifyAuthenticator = SPTAuth.defaultInstance()
+    private let sessionHandler = SessionHandler()
+    private let authController = SpotifyAuth()
+    private let spotifyAuthenticator = SPTAuth.defaultInstance()
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerLabel: UILabel!
-    @IBAction func loginWithSpotify(sender: AnyObject) {
-
-        spotifyAuthenticator.clientID = kClientID
-        spotifyAuthenticator.requestedScopes = [SPTAuthStreamingScope]
-        spotifyAuthenticator.redirectURL = NSURL(string: kCallbackURL)
-        spotifyAuthenticator.tokenSwapURL = NSURL(string: kTokenSwapURL)
-        spotifyAuthenticator.tokenRefreshURL = NSURL(string: kTokenRefreshURL)
-        
-        let spotifyAuthenticationViewController = SPTAuthViewController.authenticationViewController()
-        spotifyAuthenticationViewController.delegate = self
-        spotifyAuthenticationViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        spotifyAuthenticationViewController.definesPresentationContext = true
-        presentViewController(spotifyAuthenticationViewController, animated: false, completion: nil)
-    }
     
-    @IBAction func registerButtonPressed(sender: UIButton) {
-        //hyperlink to spotify register page and open in safari
-    }
     
-    // SPTAuthViewDelegate protocol methods
+    // _____ SPTAuthViewDelegate Methods _____
     
     func authenticationViewController(authenticationViewController: SPTAuthViewController!, didLoginWithSession session: SPTSession!) {
-        setupSpotifyPlayer()
-        loginWithSpotifySession(session)
+        print("Login Successful")
+        storeSession(session)
     }
     
     func authenticationViewControllerDidCancelLogin(authenticationViewController: SPTAuthViewController!) {
@@ -58,53 +38,49 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
         print("login failed")
     }
     
-    // SPTAudioStreamingPlaybackDelegate protocol methods
     
-    private
+    // _____ GUI Actions _____
     
-    func setupSpotifyPlayer() {
-        player = SPTAudioStreamingController(clientId: spotifyAuthenticator.clientID) // can also use kClientID; they're the same value
-        player!.playbackDelegate = self
-        player!.diskCache = SPTDiskCache(capacity: 1024 * 1024 * 64)
+    @IBAction func loginWithSpotify(sender: AnyObject) {
+        
+        authController.setParameters(spotifyAuthenticator)
+        
+        let spotifyAuthenticationViewController = SPTAuthViewController.authenticationViewController()
+        spotifyAuthenticationViewController.delegate = self
+        spotifyAuthenticationViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        spotifyAuthenticationViewController.definesPresentationContext = true
+        presentViewController(spotifyAuthenticationViewController, animated: false, completion: nil)
+    }
+
+    @IBAction func registerButtonPressed(sender: UIButton) {
+        //hyperlink to spotify register page and open in safari
+        print("register pressed")
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.spotify.com")!)
     }
     
-    func loginWithSpotifySession(session: SPTSession) {
-        player!.loginWithSession(session, callback: { (error: NSError!) in
-            if error != nil {
-                print("Couldn't login with session: \(error)")
-                return
-            }
-            //TODO: cant put NSObject in NSUserDefaults. check SPTAuth?
-            let userDefaults = NSUserDefaults.standardUserDefaults();
-            let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
-            userDefaults.setObject(sessionData, forKey: "session")
-            userDefaults.synchronize()
-            self.useLoggedInPermissions()
-        })
-    }
     
-    func useLoggedInPermissions() {
-        print("track is playing")
-        let spotifyURI = "spotify:track:1WJk986df8mpqpktoktlce"
-        player!.playURIs([NSURL(string: spotifyURI)!], withOptions: nil, callback: nil)
+    // _____ Additional Methods _____
+    
+    func storeSession(session: SPTSession) {
+        
+        sessionHandler.storeSession(session)
+        
     }
 
 
-
+    // _____ Default View Controller Methods _____
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let sessionData = userDefaults.objectForKey("session")
+
+        let session = sessionHandler.getSession()
         
-        
-        if(sessionData == nil) { return }
-        
-        let session = NSKeyedUnarchiver.unarchiveObjectWithData(sessionData as! NSData) as! SPTSession
-        
-        if (session.isValid()) {
-            setupSpotifyPlayer()
-            loginWithSpotifySession(session)
+        if (session != nil) {
+            if (session!.isValid()) {
+                print("session is valid")
+            } else {
+                print("reauthorize")
+            }
         }
     
     }

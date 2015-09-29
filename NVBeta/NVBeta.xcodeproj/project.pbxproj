@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9118BF841BBB1F9900893CF8 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF831BBB1F9900893CF8 /* SessionHandler.swift */; settings = {ASSET_TAGS = (); }; };
 		918A22BF1BB1BAFB00CE76AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */; };
 		918A22C11BB1BAFB00CE76AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A22C01BB1BAFB00CE76AF /* ViewController.swift */; };
 		918A22C41BB1BAFB00CE76AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918A22C21BB1BAFB00CE76AF /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 		918A22E01BB1BB8200CE76AF /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22DF1BB1BB8200CE76AF /* Spotify.framework */; settings = {ASSET_TAGS = (); }; };
 		918A22E21BB1BBAF00CE76AF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */; };
 		918A22E41BB1BBC200CE76AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */; };
+		91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9118BF831BBB1F9900893CF8 /* SessionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 		918A22BB1BB1BAFB00CE76AF /* NVBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		918A22C01BB1BAFB00CE76AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		918A22E51BB1BCEA00CE76AF /* Spot_test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spot_test-Bridging-Header.h"; sourceTree = "<group>"; };
+		91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			children = (
 				918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */,
 				918A22C01BB1BAFB00CE76AF /* ViewController.swift */,
+				9118BF831BBB1F9900893CF8 /* SessionHandler.swift */,
+				91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */,
 				918A22C21BB1BAFB00CE76AF /* Main.storyboard */,
 				918A22C51BB1BAFB00CE76AF /* Assets.xcassets */,
 				918A22C71BB1BAFB00CE76AF /* LaunchScreen.storyboard */,
@@ -225,6 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */,
+				9118BF841BBB1F9900893CF8 /* SessionHandler.swift in Sources */,
 				918A22C11BB1BAFB00CE76AF /* ViewController.swift in Sources */,
 				918A22BF1BB1BAFB00CE76AF /* AppDelegate.swift in Sources */,
 			);
