@@ -8,6 +8,8 @@
 
 import UIKit
 
+let userDefaults = NSUserDefaults.standardUserDefaults()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -12,7 +12,7 @@ import Foundation
 
 class SessionHandler {
 
-    private let userDefaults = NSUserDefaults.standardUserDefaults()
+    //private let userDefaults = NSUserDefaults.standardUserDefaults()
     
     func storeSession(session:SPTSession) -> Bool {
         let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)

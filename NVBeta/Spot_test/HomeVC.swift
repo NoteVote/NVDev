@@ -8,8 +8,10 @@
 
 import UIKit
 
-class HomeVC: UIViewController, ENSideMenuDelegate {
+class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITableViewDelegate{
     
+    var roomsNearby:[String] = []
+    var serverLink = RoomFinder()
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -38,15 +40,57 @@ class HomeVC: UIViewController, ENSideMenuDelegate {
         print("sideMenuDidOpen")
     }
 
-    
-    
     @IBAction func menuButtonPressed(sender: AnyObject) {
         toggleSideMenuView()
     }
     
+    @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("Home_CreateRoom", sender: nil)
+    }
+    
+    
+    //Table View Methods
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    /*Number of rows of tableView*/
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return roomsNearby.count
+        //TODO: needs to return the number of rooms in the area.
+    }
+    
+    /*CurrentPlayer Selected and moves to next page*/
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let currentRoom = roomsNearby[indexPath.row]
+        
+        //takes name of current room and saves it.
+        userDefaults.setObject(currentRoom, forKey: "currentRoom")
+        performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
+    }
+    
+    /*Creating tableview cells*/
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel!.textColor = UIColor(red: 125/255, green: 205/255, blue: 3/255, alpha: 1.0)
+        cell.textLabel?.text = roomsNearby[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFontOfSize(30)
+        cell.detailTextLabel?.text = "Hello"
+        cell.detailTextLabel?.textColor = UIColor.greenColor()
+        
+        //TODO: set cell atributes.
+        return cell
+    }
     
     
     // _____ Default View Controller Methods _____
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        roomsNearby = serverLink.findRooms()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +101,4 @@ class HomeVC: UIViewController, ENSideMenuDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
