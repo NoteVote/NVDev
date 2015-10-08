@@ -127,12 +127,31 @@
                         <outlet property="loginButton" destination="S6C-YH-LEG" id="2om-hy-vOz"/>
                         <outlet property="registerButton" destination="1jf-zl-DOd" id="uqB-W4-psF"/>
                         <outlet property="registerLabel" destination="4FI-tA-u7A" id="Dga-4F-VIW"/>
-                        <segue destination="JRy-CS-J1I" kind="show" identifier="segueOne" id="xAN-sd-1w0"/>
+                        <segue destination="mN5-bb-sYv" kind="show" identifier="segueOne" id="BHG-x7-t77"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="304.5" y="327"/>
+        </scene>
+        <!--My Navigation Controller-->
+        <scene sceneID="jee-tC-bCC">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="mN5-bb-sYv" customClass="MyNavigationController" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Vw-7J-rMU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="g4m-sV-nCB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="JRy-CS-J1I" kind="relationship" relationship="rootViewController" id="wup-XS-uQE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L92-yl-q38" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1096.5" y="-395.25"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="Ynj-uY-hjf">
@@ -143,13 +162,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Lr0-nr-9yG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pXr-R5-JPl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="JJi-HH-VLA">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="20" width="360" height="780"/>
-                                </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8X-Ar-cFA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -160,11 +177,15 @@
                                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Select a Room" id="aLh-hm-BJD"/>
+                                    <navigationItem title="Select a Room" id="aLh-hm-BJD">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" style="plain" id="n1q-wF-Bnd">
+                                            <connections>
+                                                <action selector="menuButtonPressed:" destination="JRy-CS-J1I" id="JnZ-Be-lFi"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="TaK-0Q-rcB"/>
+                                    </navigationItem>
                                 </items>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="20" width="360" height="44"/>
-                                </variation>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,13 +218,13 @@
                                 <exclude reference="C8X-Ar-cFA"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Y2r-a4-xTU"/>
                                 <exclude reference="0fF-aP-UMy"/>
                                 <exclude reference="Sy4-Lh-wlm"/>
                                 <exclude reference="h9k-zd-Voa"/>
                                 <exclude reference="Dzc-dI-vKb"/>
                                 <exclude reference="oFf-3p-MZk"/>
                                 <exclude reference="vPB-pl-LjN"/>
-                                <exclude reference="Y2r-a4-xTU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -212,18 +233,20 @@
                                 <include reference="C8X-Ar-cFA"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Y2r-a4-xTU"/>
                                 <include reference="0fF-aP-UMy"/>
                                 <include reference="Sy4-Lh-wlm"/>
                                 <include reference="h9k-zd-Voa"/>
                                 <include reference="Dzc-dI-vKb"/>
                                 <include reference="oFf-3p-MZk"/>
                                 <include reference="vPB-pl-LjN"/>
-                                <include reference="Y2r-a4-xTU"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="E1f-jZ-ruc"/>
                     <connections>
                         <outlet property="backgroundImage" destination="JJi-HH-VLA" id="8Dc-Dd-eRn"/>
+                        <outlet property="menuButton" destination="n1q-wF-Bnd" id="Quf-lI-xZg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DA1-0X-cIW" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,11 +8,41 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, ENSideMenuDelegate {
     
     
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        print("sideMenuShouldOpenSideMenu")
+        return true
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+
+    
+    
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+        toggleSideMenuView()
+    }
     
     
     

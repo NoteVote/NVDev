@@ -2,6 +2,7 @@
 //  SessionHandler.swift
 //  
 //  This class handles getting and storing the spotify session for persistence.
+//  NSKeyedArchiver is used to encrypt data before it is stored in NSUserDefaults
 //
 //  Created by Aaron Kaplan on 9/29/15.
 //  Copyright © 2015 NoteVote. All rights reserved.
@@ -11,7 +12,7 @@ import Foundation
 
 class SessionHandler {
 
-    private let userDefaults = NSUserDefaults.standardUserDefaults();
+    private let userDefaults = NSUserDefaults.standardUserDefaults()
     
     func storeSession(session:SPTSession) -> Bool {
         let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)

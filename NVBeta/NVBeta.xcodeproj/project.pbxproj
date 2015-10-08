@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9118BF841BBB1F9900893CF8 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF831BBB1F9900893CF8 /* SessionHandler.swift */; settings = {ASSET_TAGS = (); }; };
 		9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF851BBB2E5300893CF8 /* HomeVC.swift */; settings = {ASSET_TAGS = (); }; };
+		9118BF8B1BBDE80700893CF8 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF871BBDE80700893CF8 /* ENSideMenu.swift */; settings = {ASSET_TAGS = (); }; };
+		9118BF8C1BBDE80700893CF8 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF881BBDE80700893CF8 /* ENSideMenuNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		9118BF8D1BBDE80700893CF8 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF891BBDE80700893CF8 /* MyMenuTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF8A1BBDE80700893CF8 /* MyNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
 		918A22BF1BB1BAFB00CE76AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */; };
 		918A22C11BB1BAFB00CE76AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A22C01BB1BAFB00CE76AF /* ViewController.swift */; };
 		918A22C41BB1BAFB00CE76AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918A22C21BB1BAFB00CE76AF /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* Begin PBXFileReference section */
 		9118BF831BBB1F9900893CF8 /* SessionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 		9118BF851BBB2E5300893CF8 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		9118BF871BBDE80700893CF8 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		9118BF881BBDE80700893CF8 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		9118BF891BBDE80700893CF8 /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
+		9118BF8A1BBDE80700893CF8 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		918A22BB1BB1BAFB00CE76AF /* NVBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		918A22C01BB1BAFB00CE76AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +102,10 @@
 		918A22BD1BB1BAFB00CE76AF /* Spot_test */ = {
 			isa = PBXGroup;
 			children = (
+				9118BF871BBDE80700893CF8 /* ENSideMenu.swift */,
+				9118BF881BBDE80700893CF8 /* ENSideMenuNavigationController.swift */,
+				9118BF891BBDE80700893CF8 /* MyMenuTableViewController.swift */,
+				9118BF8A1BBDE80700893CF8 /* MyNavigationController.swift */,
 				918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */,
 				918A22C01BB1BAFB00CE76AF /* ViewController.swift */,
 				9118BF831BBB1F9900893CF8 /* SessionHandler.swift */,
@@ -234,8 +246,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9118BF8B1BBDE80700893CF8 /* ENSideMenu.swift in Sources */,
 				91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */,
 				9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */,
+				9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */,
+				9118BF8C1BBDE80700893CF8 /* ENSideMenuNavigationController.swift in Sources */,
+				9118BF8D1BBDE80700893CF8 /* MyMenuTableViewController.swift in Sources */,
 				9118BF841BBB1F9900893CF8 /* SessionHandler.swift in Sources */,
 				918A22C11BB1BAFB00CE76AF /* ViewController.swift in Sources */,
 				918A22BF1BB1BAFB00CE76AF /* AppDelegate.swift in Sources */,
