@@ -7,25 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9118BF841BBB1F9900893CF8 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF831BBB1F9900893CF8 /* SessionHandler.swift */; settings = {ASSET_TAGS = (); }; };
-		9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF851BBB2E5300893CF8 /* HomeVC.swift */; settings = {ASSET_TAGS = (); }; };
-		9118BF8B1BBDE80700893CF8 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF871BBDE80700893CF8 /* ENSideMenu.swift */; settings = {ASSET_TAGS = (); }; };
-		9118BF8C1BBDE80700893CF8 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF881BBDE80700893CF8 /* ENSideMenuNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
-		9118BF8D1BBDE80700893CF8 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF891BBDE80700893CF8 /* MyMenuTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF8A1BBDE80700893CF8 /* MyNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		9118BF841BBB1F9900893CF8 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF831BBB1F9900893CF8 /* SessionHandler.swift */; };
+		9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF851BBB2E5300893CF8 /* HomeVC.swift */; };
+		9118BF8B1BBDE80700893CF8 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF871BBDE80700893CF8 /* ENSideMenu.swift */; };
+		9118BF8C1BBDE80700893CF8 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF881BBDE80700893CF8 /* ENSideMenuNavigationController.swift */; };
+		9118BF8D1BBDE80700893CF8 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF891BBDE80700893CF8 /* MyMenuTableViewController.swift */; };
+		9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118BF8A1BBDE80700893CF8 /* MyNavigationController.swift */; };
 		918A22BF1BB1BAFB00CE76AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */; };
 		918A22C11BB1BAFB00CE76AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A22C01BB1BAFB00CE76AF /* ViewController.swift */; };
 		918A22C41BB1BAFB00CE76AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918A22C21BB1BAFB00CE76AF /* Main.storyboard */; };
 		918A22C61BB1BAFB00CE76AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918A22C51BB1BAFB00CE76AF /* Assets.xcassets */; };
 		918A22C91BB1BAFB00CE76AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918A22C71BB1BAFB00CE76AF /* LaunchScreen.storyboard */; };
 		918A22D41BB1BAFC00CE76AF /* Spot_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A22D31BB1BAFC00CE76AF /* Spot_testTests.swift */; };
-		918A22E01BB1BB8200CE76AF /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22DF1BB1BB8200CE76AF /* Spotify.framework */; settings = {ASSET_TAGS = (); }; };
+		918A22E01BB1BB8200CE76AF /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22DF1BB1BB8200CE76AF /* Spotify.framework */; };
 		918A22E21BB1BBAF00CE76AF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */; };
 		918A22E41BB1BBC200CE76AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */; };
-		91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */; settings = {ASSET_TAGS = (); }; };
-		AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */; settings = {ASSET_TAGS = (); }; };
-		AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */; settings = {ASSET_TAGS = (); }; };
-		AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */; settings = {ASSET_TAGS = (); }; };
+		91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */; };
+		AD23D4AB1BE2C9A7000B9F14 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4AA1BE2C9A7000B9F14 /* Bolts.framework */; };
+		AD23D4AD1BE2C9B9000B9F14 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4AC1BE2C9B9000B9F14 /* Parse.framework */; };
+		AD23D4AF1BE2C9FB000B9F14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4AE1BE2C9FB000B9F14 /* AudioToolbox.framework */; };
+		AD23D4B11BE2CA03000B9F14 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4B01BE2CA03000B9F14 /* CFNetwork.framework */; };
+		AD23D4B31BE2CA13000B9F14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4B21BE2CA13000B9F14 /* CoreGraphics.framework */; };
+		AD23D4B51BE2CA1B000B9F14 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4B41BE2CA1B000B9F14 /* CoreLocation.framework */; };
+		AD23D4B71BE2CA24000B9F14 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4B61BE2CA24000B9F14 /* QuartzCore.framework */; };
+		AD23D4B91BE2CA30000B9F14 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4B81BE2CA30000B9F14 /* Security.framework */; };
+		AD23D4BB1BE2CA38000B9F14 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4BA1BE2CA38000B9F14 /* StoreKit.framework */; };
+		AD23D4BD1BE2CA4B000B9F14 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4BC1BE2CA4B000B9F14 /* libz.tbd */; };
+		AD23D4BF1BE2CA54000B9F14 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4BE1BE2CA54000B9F14 /* libsqlite3.tbd */; };
+		AD23D4C11BE2CA77000B9F14 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4C01BE2CA77000B9F14 /* Accounts.framework */; };
+		AD23D4C31BE2CA7F000B9F14 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4C21BE2CA7F000B9F14 /* Social.framework */; };
+		AD2483B21BE7E06400432200 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2483B11BE7E06400432200 /* ParseUI.framework */; };
+		AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */; };
+		AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */; };
+		AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +74,20 @@
 		918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		918A22E51BB1BCEA00CE76AF /* Spot_test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spot_test-Bridging-Header.h"; sourceTree = "<group>"; };
 		91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
+		AD23D4AA1BE2C9A7000B9F14 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		AD23D4AC1BE2C9B9000B9F14 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		AD23D4AE1BE2C9FB000B9F14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AD23D4B01BE2CA03000B9F14 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AD23D4B21BE2CA13000B9F14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AD23D4B41BE2CA1B000B9F14 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AD23D4B61BE2CA24000B9F14 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AD23D4B81BE2CA30000B9F14 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AD23D4BA1BE2CA38000B9F14 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AD23D4BC1BE2CA4B000B9F14 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AD23D4BE1BE2CA54000B9F14 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AD23D4C01BE2CA77000B9F14 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		AD23D4C21BE2CA7F000B9F14 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		AD2483B11BE7E06400432200 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomFinder.swift; sourceTree = "<group>"; };
 		AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRoomVC.swift; path = ../CreateRoomVC.swift; sourceTree = "<group>"; };
 		AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveRoomVC.swift; sourceTree = "<group>"; };
@@ -70,9 +98,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD23D4C31BE2CA7F000B9F14 /* Social.framework in Frameworks */,
+				AD23D4C11BE2CA77000B9F14 /* Accounts.framework in Frameworks */,
+				AD23D4BF1BE2CA54000B9F14 /* libsqlite3.tbd in Frameworks */,
+				AD23D4BD1BE2CA4B000B9F14 /* libz.tbd in Frameworks */,
 				918A22E41BB1BBC200CE76AF /* SystemConfiguration.framework in Frameworks */,
+				AD23D4BB1BE2CA38000B9F14 /* StoreKit.framework in Frameworks */,
+				AD23D4B91BE2CA30000B9F14 /* Security.framework in Frameworks */,
+				AD23D4B71BE2CA24000B9F14 /* QuartzCore.framework in Frameworks */,
+				AD23D4B51BE2CA1B000B9F14 /* CoreLocation.framework in Frameworks */,
+				AD2483B21BE7E06400432200 /* ParseUI.framework in Frameworks */,
+				AD23D4B31BE2CA13000B9F14 /* CoreGraphics.framework in Frameworks */,
+				AD23D4B11BE2CA03000B9F14 /* CFNetwork.framework in Frameworks */,
+				AD23D4AF1BE2C9FB000B9F14 /* AudioToolbox.framework in Frameworks */,
 				918A22E21BB1BBAF00CE76AF /* AVFoundation.framework in Frameworks */,
 				918A22E01BB1BB8200CE76AF /* Spotify.framework in Frameworks */,
+				AD23D4AB1BE2C9A7000B9F14 /* Bolts.framework in Frameworks */,
+				AD23D4AD1BE2C9B9000B9F14 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +183,20 @@
 		918A22DE1BB1BB8200CE76AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD2483B11BE7E06400432200 /* ParseUI.framework */,
+				AD23D4C21BE2CA7F000B9F14 /* Social.framework */,
+				AD23D4C01BE2CA77000B9F14 /* Accounts.framework */,
+				AD23D4BE1BE2CA54000B9F14 /* libsqlite3.tbd */,
+				AD23D4BC1BE2CA4B000B9F14 /* libz.tbd */,
+				AD23D4BA1BE2CA38000B9F14 /* StoreKit.framework */,
+				AD23D4B81BE2CA30000B9F14 /* Security.framework */,
+				AD23D4B61BE2CA24000B9F14 /* QuartzCore.framework */,
+				AD23D4B41BE2CA1B000B9F14 /* CoreLocation.framework */,
+				AD23D4B21BE2CA13000B9F14 /* CoreGraphics.framework */,
+				AD23D4B01BE2CA03000B9F14 /* CFNetwork.framework */,
+				AD23D4AE1BE2C9FB000B9F14 /* AudioToolbox.framework */,
+				AD23D4AC1BE2C9B9000B9F14 /* Parse.framework */,
+				AD23D4AA1BE2C9A7000B9F14 /* Bolts.framework */,
 				918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */,
 				918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */,
 				918A22DF1BB1BB8200CE76AF /* Spotify.framework */,

@@ -7,15 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITableViewDelegate{
     
     var roomsNearby:[String] = []
-    var serverLink = RoomFinder()
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+    @IBOutlet weak var tableView: UITableView!
     
     
     // MARK: - ENSideMenu Delegate
@@ -76,9 +76,6 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         cell.textLabel!.textColor = UIColor(red: 125/255, green: 205/255, blue: 3/255, alpha: 1.0)
         cell.textLabel?.text = roomsNearby[indexPath.row]
         cell.textLabel?.font = UIFont.systemFontOfSize(30)
-        cell.detailTextLabel?.text = "Hello"
-        cell.detailTextLabel?.textColor = UIColor.greenColor()
-        
         //TODO: set cell atributes.
         return cell
     }
@@ -88,9 +85,14 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        roomsNearby = serverLink.findRooms()
+
+        //Handles result from completion handler.
+        serverLink.findRooms(){
+            (result: [String]) in print(result)
+            self.roomsNearby = result
+            self.tableView.reloadData()
+        }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

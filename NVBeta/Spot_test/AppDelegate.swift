@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 let userDefaults = NSUserDefaults.standardUserDefaults()
+let serverLink = RoomFinder()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        //All stuff for Parse
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("QB414l5cQl9zLJ3j0RkFrWnmodlAx2EEmfH6Tkjo",
+            clientKey: "nxxwBkXZqhGtMfx5QxWd55I8vGuAWhaxVI5fQyYM")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         return true
     }
