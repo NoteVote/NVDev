@@ -10,11 +10,14 @@ import UIKit
 
 class MyMenuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
+    let menuOptions:[String] = ["hello","goodbye","fucker","dick"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Customize apperance of table view
-        tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0) //
+        tableView.contentInset = UIEdgeInsetsMake(70.0, 0, 0, 0) //
         tableView.separatorStyle = .None
         tableView.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.8)
         tableView.scrollsToTop = false
@@ -55,7 +58,7 @@ class MyMenuTableViewController: UITableViewController {
             cell!.selectedBackgroundView = selectedBackgroundView
         }
         
-        cell!.textLabel?.text = "ViewController #\(indexPath.row+1)"
+        cell!.textLabel?.text = menuOptions[indexPath.row]
         
         return cell!
     }

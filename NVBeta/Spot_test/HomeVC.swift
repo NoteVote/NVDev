@@ -66,6 +66,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         
         //takes name of current room and saves it.
         userDefaults.setObject(currentRoom, forKey: "currentRoom")
+        userDefaults.synchronize()
         performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
     }
     

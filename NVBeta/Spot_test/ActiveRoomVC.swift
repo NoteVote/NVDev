@@ -7,12 +7,43 @@
 //
 
 import UIKit
+import Parse
 
-class ActiveRoom: UIViewController {
+class ActiveRoomVC: UIViewController {
 
     @IBOutlet weak var navBarTitle: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    //TODO: Make songQueue a list of Dictionaries. Each dictionary has title, artist, and votes as keys.
+    var songQueue:[String] = []
+
+    
+    //Table View Methods
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    /*Number of rows of tableView*/
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return songQueue.count
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    /*Creating tableview cells*/
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        
+        //TODO: somehow link to prototype cell QueueTableCell.swift
+        return cell
+    }
+
   
     @IBAction func exitButtonPressed(sender: UIBarButtonItem) {
+        //TODO: remember votes and remove user from room on server
         performSegueWithIdentifier("activeRoom_Home", sender: nil)
         
     }
