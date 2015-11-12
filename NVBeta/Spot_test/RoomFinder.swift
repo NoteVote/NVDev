@@ -23,7 +23,8 @@ class RoomFinder {
     func findRooms(completion: (result: [String]) -> Void){
         
         let query = PFQuery(className: "RoomObjects")
-        query.whereKey("roomID", equalTo: "")
+        //NEED TO FIX THIS BEFORE RELEASEING
+        query.whereKey("roomID", notEqualTo: "0")
         query.findObjectsInBackgroundWithBlock{
             (objects: [PFObject]?, error: NSError?) -> Void in
             
@@ -63,6 +64,42 @@ class RoomFinder {
             }
         }
         
+    }
+    /*query used to find roomID from roomName*/
+    func roomID(roomName:String, completion: (result: String) -> Void){
+        var roomID:String = ""
+        let query = PFQuery(className: "RoomObjects")
+        query.whereKey("roomName", equalTo: roomName)
+        query.findObjectsInBackgroundWithBlock{
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                let room = objects![0]
+                roomID = room.objectForKey("roomID") as! String
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+        completion(result: roomID)
+    }
+    
+    func queueForRoomID(roomID:String, completion: (result: [[AnyObject]]) -> Void){
+        var musicList:[[AnyObject]] = [[]]
+        let query = PFQuery(className: "RoomObjects")
+        query.whereKey("roomPin", equalTo: "tester")
+        query.findObjectsInBackgroundWithBlock{
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                let room = objects![0]
+                musicList = room.objectForKey("queue") as! [[AnyObject]]
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+            completion(result: musicList)
+        }
     }
     
     func removeRoom(roomName:String) {

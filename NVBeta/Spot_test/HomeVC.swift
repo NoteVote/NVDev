@@ -12,6 +12,7 @@ import Parse
 class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITableViewDelegate{
     
     var roomsNearby:[String] = []
+    var currentRoomID:String = ""
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -63,9 +64,14 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     /*CurrentPlayer Selected and moves to next page*/
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let currentRoom = roomsNearby[indexPath.row]
+        serverLink.roomID(currentRoom){
+            (result: String) in print(result)
+            self.currentRoomID = result
+        }
         
         //takes name of current room and saves it.
         userDefaults.setObject(currentRoom, forKey: "currentRoom")
+        userDefaults.setObject(currentRoomID, forKey: "roomID")
         userDefaults.synchronize()
         performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
     }
