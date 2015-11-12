@@ -24,4 +24,7 @@ class SpotifyAuth {
         auth.tokenRefreshURL = NSURL(string: kTokenRefreshURL)
     }
     
+    func getClientID() -> String {
+        return kClientID
+    }
 }
