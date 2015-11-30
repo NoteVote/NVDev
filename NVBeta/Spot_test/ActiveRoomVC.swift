@@ -18,7 +18,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var roomID = ""
 
     @IBAction func searchButtonPressed(sender: UIBarButtonItem) {
-        self.tableView.reloadData()
+        performSegueWithIdentifier("ActiveRoomToSearch", sender: nil)
     }
     
     //Table View Methods

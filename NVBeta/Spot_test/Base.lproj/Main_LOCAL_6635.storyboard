@@ -563,17 +563,16 @@
                         <outlet property="navBarTitle" destination="Nnw-Cb-YFk" id="ITU-Qq-9NR"/>
                         <outlet property="tableView" destination="3IE-bL-JoP" id="stb-wQ-UIX"/>
                         <segue destination="JRy-CS-J1I" kind="show" identifier="activeRoom_Home" id="Ho6-XE-rV5"/>
-                        <segue destination="bte-a7-UYf" kind="show" identifier="ActiveRoomToSearch" id="yq5-sm-stl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQl-zl-bjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2467.5" y="579"/>
         </scene>
-        <!--SearchVC-->
+        <!--View Controller-->
         <scene sceneID="vxp-Zy-OoL">
             <objects>
-                <viewController id="bte-a7-UYf" customClass="SearchVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bte-a7-UYf" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vt4-h1-0OI"/>
                         <viewControllerLayoutGuide type="bottom" id="ph8-KO-Yzv"/>
@@ -582,64 +581,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODE-6j-Vl0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
-                                    <color key="textColor" red="0.49019607840000001" green="0.80392156859999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem id="FZv-jr-I4X">
-                                        <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="aFH-oy-xDj">
-                                            <color key="tintColor" red="1" green="0.050980392159999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="BackButtonPressed:" destination="bte-a7-UYf" id="lB7-um-Q3H"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="amI-FJ-728">
-                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="b2C-qJ-oED">
-                                            <connections>
-                                                <action selector="SearchButtonPressed:" destination="bte-a7-UYf" id="N0N-Qs-PfU"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yiQ-dZ-oW3">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" id="qwS-2R-92q">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qwS-2R-92q" id="4d3-Af-ViF">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="64" width="360" height="695"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="dataSource" destination="bte-a7-UYf" id="2TW-FV-5PA"/>
-                                    <outlet property="delegate" destination="bte-a7-UYf" id="eYv-eR-Vxq"/>
-                                </connections>
-                            </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="GNk-XQ-PKC">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
@@ -648,24 +589,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ph8-KO-Yzv" firstAttribute="top" secondItem="GNk-XQ-PKC" secondAttribute="bottom" constant="20" id="7hC-8W-VO1">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="ODE-6j-Vl0" firstAttribute="top" secondItem="9uo-Tg-BU5" secondAttribute="topMargin" constant="20" id="8c3-4A-GJ6"/>
-                            <constraint firstItem="yiQ-dZ-oW3" firstAttribute="top" secondItem="ODE-6j-Vl0" secondAttribute="bottom" id="C3W-r6-KBG"/>
+                            <constraint firstItem="ph8-KO-Yzv" firstAttribute="top" secondItem="GNk-XQ-PKC" secondAttribute="bottom" constant="20" id="7hC-8W-VO1"/>
                             <constraint firstItem="GNk-XQ-PKC" firstAttribute="top" secondItem="9uo-Tg-BU5" secondAttribute="topMargin" id="NQu-z2-zkf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GNk-XQ-PKC" secondAttribute="trailing" constant="-20" id="ewd-jy-aIp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ODE-6j-Vl0" secondAttribute="trailing" constant="-20" id="ggu-Pz-ut3"/>
                             <constraint firstItem="GNk-XQ-PKC" firstAttribute="leading" secondItem="9uo-Tg-BU5" secondAttribute="leadingMargin" constant="-20" id="lMR-gP-sMr"/>
-                            <constraint firstItem="yiQ-dZ-oW3" firstAttribute="leading" secondItem="9uo-Tg-BU5" secondAttribute="leadingMargin" id="tc0-cq-7Pq"/>
-                            <constraint firstItem="yiQ-dZ-oW3" firstAttribute="trailing" secondItem="9uo-Tg-BU5" secondAttribute="trailingMargin" id="tgb-B9-hg6"/>
-                            <constraint firstItem="ph8-KO-Yzv" firstAttribute="top" secondItem="yiQ-dZ-oW3" secondAttribute="bottom" constant="20" id="v94-zH-s18"/>
-                            <constraint firstItem="ODE-6j-Vl0" firstAttribute="leading" secondItem="9uo-Tg-BU5" secondAttribute="leadingMargin" constant="-20" id="vdQ-81-t0N"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="ODE-6j-Vl0"/>
-                                <exclude reference="yiQ-dZ-oW3"/>
                                 <exclude reference="GNk-XQ-PKC"/>
                             </mask>
                             <mask key="constraints">
@@ -673,20 +603,10 @@
                                 <exclude reference="NQu-z2-zkf"/>
                                 <exclude reference="ewd-jy-aIp"/>
                                 <exclude reference="lMR-gP-sMr"/>
-                                <exclude reference="8c3-4A-GJ6"/>
-                                <exclude reference="ggu-Pz-ut3"/>
-                                <exclude reference="vdQ-81-t0N"/>
-                                <exclude reference="C3W-r6-KBG"/>
-                                <exclude reference="tc0-cq-7Pq"/>
-                                <exclude reference="tgb-B9-hg6"/>
-                                <exclude reference="7hC-8W-VO1"/>
-                                <exclude reference="v94-zH-s18"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="ODE-6j-Vl0"/>
-                                <include reference="yiQ-dZ-oW3"/>
                                 <include reference="GNk-XQ-PKC"/>
                             </mask>
                             <mask key="constraints">
@@ -694,21 +614,9 @@
                                 <include reference="NQu-z2-zkf"/>
                                 <include reference="ewd-jy-aIp"/>
                                 <include reference="lMR-gP-sMr"/>
-                                <include reference="8c3-4A-GJ6"/>
-                                <include reference="ggu-Pz-ut3"/>
-                                <include reference="vdQ-81-t0N"/>
-                                <include reference="C3W-r6-KBG"/>
-                                <include reference="tc0-cq-7Pq"/>
-                                <include reference="tgb-B9-hg6"/>
-                                <include reference="7hC-8W-VO1"/>
-                                <include reference="v94-zH-s18"/>
                             </mask>
                         </variation>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="yiQ-dZ-oW3" id="W3E-PX-PgQ"/>
-                        <segue destination="ifF-hM-bMC" kind="show" identifier="SearchToActiveRoom" id="ZpU-jn-NBD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbD-qI-0ZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -838,7 +746,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6gA-pR-Ehl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="42F-CZ-pXw" kind="relationship" relationship="rootViewController" id="EU7-Q1-SsU"/>
@@ -846,7 +753,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYg-XI-oIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4219.5" y="-305.25"/>
+            <point key="canvasLocation" x="3346.5" y="-138.75"/>
         </scene>
         <!--Host RoomVC-->
         <scene sceneID="XYZ-o1-i2F">
@@ -1007,7 +914,6 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AP-Gi-VcN">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="Tye-dK-7SR"/>
                                     <constraint firstAttribute="width" constant="127" id="r3W-zX-wGw"/>
@@ -1154,7 +1060,6 @@
         <image name="unvoted" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZpU-jn-NBD"/>
-        <segue reference="Ho6-XE-rV5"/>
+        <segue reference="92O-nV-S4i"/>
     </inferredMetricsTieBreakers>
 </document>

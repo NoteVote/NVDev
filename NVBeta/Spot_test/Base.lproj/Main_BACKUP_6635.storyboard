@@ -673,6 +673,8 @@
                                 <exclude reference="NQu-z2-zkf"/>
                                 <exclude reference="ewd-jy-aIp"/>
                                 <exclude reference="lMR-gP-sMr"/>
+<<<<<<< Updated upstream
+=======
                                 <exclude reference="8c3-4A-GJ6"/>
                                 <exclude reference="ggu-Pz-ut3"/>
                                 <exclude reference="vdQ-81-t0N"/>
@@ -681,6 +683,7 @@
                                 <exclude reference="tgb-B9-hg6"/>
                                 <exclude reference="7hC-8W-VO1"/>
                                 <exclude reference="v94-zH-s18"/>
+>>>>>>> Stashed changes
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -694,6 +697,8 @@
                                 <include reference="NQu-z2-zkf"/>
                                 <include reference="ewd-jy-aIp"/>
                                 <include reference="lMR-gP-sMr"/>
+<<<<<<< Updated upstream
+=======
                                 <include reference="8c3-4A-GJ6"/>
                                 <include reference="ggu-Pz-ut3"/>
                                 <include reference="vdQ-81-t0N"/>
@@ -702,6 +707,7 @@
                                 <include reference="tgb-B9-hg6"/>
                                 <include reference="7hC-8W-VO1"/>
                                 <include reference="v94-zH-s18"/>
+>>>>>>> Stashed changes
                             </mask>
                         </variation>
                     </view>

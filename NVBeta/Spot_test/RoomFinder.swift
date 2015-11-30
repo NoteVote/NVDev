@@ -13,6 +13,7 @@ class RoomFinder {
     
     private var Rooms:[String] = []
     var musicList:[[AnyObject]] = []
+    var musicOptions:[[AnyObject]] = []
     var CurrentRoomID = ""
     
     
@@ -84,7 +85,6 @@ class RoomFinder {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
             }
-            
             completion(result: roomID)
         }
     }
@@ -126,6 +126,24 @@ class RoomFinder {
         }
     }
     
+    //for Alpha Version
+    func getSongOptions(){
+        let query = PFQuery(className: "SongLibrary")
+        query.whereKey("trackTitle", notEqualTo: "")
+        query.findObjectsInBackgroundWithBlock{
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                for object in objects! {
+                    var song:[AnyObject] = []
+                    song.append(object.objectForKey("uri") as! String)
+                    song.append(object.objectForKey("trackTitle") as! String)
+                    song.append(object.objectForKey("trackArtist") as! String)
+                    song.append(0)
+                    self.musicOptions.append(song)
+                }
+            }
+        }
+    }
     
     
     func queueForRoomID(roomID:String, completion: (result: [[AnyObject]]) -> Void){

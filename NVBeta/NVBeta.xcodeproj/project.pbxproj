@@ -22,10 +22,10 @@
 		918A22E01BB1BB8200CE76AF /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22DF1BB1BB8200CE76AF /* Spotify.framework */; };
 		918A22E21BB1BBAF00CE76AF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22E11BB1BBAF00CE76AF /* AVFoundation.framework */; };
 		918A22E41BB1BBC200CE76AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */; };
-		91E4FB2B1BE967C70044762C /* QueueTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB2A1BE967C70044762C /* QueueTableCell.swift */; settings = {ASSET_TAGS = (); }; };
-		91E4FB2D1BEC069D0044762C /* HostRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB2C1BEC069D0044762C /* HostRoomVC.swift */; settings = {ASSET_TAGS = (); }; };
-		91E4FB311C0BFC320044762C /* HostMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB301C0BFC320044762C /* HostMenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		91E4FB331C0BFCB20044762C /* HostMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB321C0BFCB20044762C /* HostMenuNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		91E4FB2B1BE967C70044762C /* QueueTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB2A1BE967C70044762C /* QueueTableCell.swift */; };
+		91E4FB2D1BEC069D0044762C /* HostRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB2C1BEC069D0044762C /* HostRoomVC.swift */; };
+		91E4FB311C0BFC320044762C /* HostMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB301C0BFC320044762C /* HostMenuViewController.swift */; };
+		91E4FB331C0BFCB20044762C /* HostMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB321C0BFCB20044762C /* HostMenuNavigationController.swift */; };
 		91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */; };
 		AD23D4AB1BE2C9A7000B9F14 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4AA1BE2C9A7000B9F14 /* Bolts.framework */; };
 		AD23D4AD1BE2C9B9000B9F14 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4AC1BE2C9B9000B9F14 /* Parse.framework */; };
@@ -41,6 +41,7 @@
 		AD23D4C11BE2CA77000B9F14 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4C01BE2CA77000B9F14 /* Accounts.framework */; };
 		AD23D4C31BE2CA7F000B9F14 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4C21BE2CA7F000B9F14 /* Social.framework */; };
 		AD2483B21BE7E06400432200 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2483B11BE7E06400432200 /* ParseUI.framework */; };
+		AD2B2FF01C0C0BF3006E5F62 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B2FEF1C0C0BF3006E5F62 /* SearchVC.swift */; };
 		AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */; };
 		AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */; };
 		AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */; };
@@ -96,6 +97,7 @@
 		AD23D4C01BE2CA77000B9F14 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AD23D4C21BE2CA7F000B9F14 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AD2483B11BE7E06400432200 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		AD2B2FEF1C0C0BF3006E5F62 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomFinder.swift; sourceTree = "<group>"; };
 		AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRoomVC.swift; path = ../CreateRoomVC.swift; sourceTree = "<group>"; };
 		AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveRoomVC.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				9118BF831BBB1F9900893CF8 /* SessionHandler.swift */,
 				91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */,
 				918A22C21BB1BAFB00CE76AF /* Main.storyboard */,
+				AD2B2FEF1C0C0BF3006E5F62 /* SearchVC.swift */,
 				91E4FB2C1BEC069D0044762C /* HostRoomVC.swift */,
 				91E4FB2A1BE967C70044762C /* QueueTableCell.swift */,
 				AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */,
@@ -338,6 +341,7 @@
 				918A22C11BB1BAFB00CE76AF /* ViewController.swift in Sources */,
 				918A22BF1BB1BAFB00CE76AF /* AppDelegate.swift in Sources */,
 				AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */,
+				AD2B2FF01C0C0BF3006E5F62 /* SearchVC.swift in Sources */,
 				91E4FB2D1BEC069D0044762C /* HostRoomVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
