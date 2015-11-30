@@ -980,6 +980,7 @@
                                 <exclude reference="nMV-HJ-tzm"/>
                                 <exclude reference="oop-gG-uoY"/>
                                 <exclude reference="w56-M3-Ty5"/>
+<<<<<<< Updated upstream
                                 <exclude reference="JQU-xs-z5K"/>
                                 <exclude reference="Q8R-nN-OOW"/>
                                 <exclude reference="gjj-ny-oRj"/>
@@ -992,6 +993,8 @@
                                 <exclude reference="9s2-zX-BmM"/>
                                 <exclude reference="vYI-vE-rho"/>
                                 <exclude reference="2Xn-qL-ZDq"/>
+=======
+>>>>>>> Stashed changes
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1023,6 +1026,7 @@
                                 <include reference="nMV-HJ-tzm"/>
                                 <include reference="oop-gG-uoY"/>
                                 <include reference="w56-M3-Ty5"/>
+<<<<<<< Updated upstream
                                 <include reference="JQU-xs-z5K"/>
                                 <include reference="Q8R-nN-OOW"/>
                                 <include reference="gjj-ny-oRj"/>
@@ -1035,6 +1039,8 @@
                                 <include reference="9s2-zX-BmM"/>
                                 <include reference="vYI-vE-rho"/>
                                 <include reference="2Xn-qL-ZDq"/>
+=======
+>>>>>>> Stashed changes
                             </mask>
                         </variation>
                     </view>
@@ -1050,7 +1056,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4t4-Lb-xPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< Updated upstream
+            <point key="canvasLocation" x="4210.5" y="-138.75"/>
+=======
             <point key="canvasLocation" x="3304.5" y="-138.75"/>
+>>>>>>> Stashed changes
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,8 @@ import Parse
 class RoomFinder {
     
     private var Rooms:[String] = []
+    var musicList:[[AnyObject]] = []
+    var CurrentRoomID = ""
     
     
     //Testing defaults
@@ -81,14 +83,54 @@ class RoomFinder {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
             }
+            
+            completion(result: roomID)
         }
-        completion(result: roomID)
     }
+    
+    func saveRoomQueue(roomID:String) {
+        let query = PFQuery(className: "RoomObjects")
+        query.whereKey("roomID", equalTo: roomID)
+        query.findObjectsInBackgroundWithBlock{
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if(error == nil){
+                let Object = objects![0]
+                print(serverLink.musicList)
+                Object.setObject(self.musicList, forKey: "queue")
+                Object.saveInBackground()
+            }
+            else{
+                print("error no room with id" + roomID)
+            }
+        }
+    }
+    
+    func incrementSongUp(songName:String){
+        for i in 0...musicList.count{
+            if songName == serverLink.musicList[i][1] as! String{
+                print(songName)
+                serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) + 1
+                print(serverLink.musicList[i][3])
+                return
+            }
+        }
+    }
+    
+    func incrementSongDown(songName:String){
+        for i in 0...musicList.count{
+            if songName == musicList[i][1] as! String{
+                musicList[i][3] = (musicList[i][3] as! Int - 1)
+                return
+            }
+        }
+    }
+    
+    
     
     func queueForRoomID(roomID:String, completion: (result: [[AnyObject]]) -> Void){
         var musicList:[[AnyObject]] = [[]]
         let query = PFQuery(className: "RoomObjects")
-        query.whereKey("roomPin", equalTo: "tester")
+        query.whereKey("roomID", equalTo: roomID)
         query.findObjectsInBackgroundWithBlock{
             (objects: [PFObject]?, error: NSError?) -> Void in
             
