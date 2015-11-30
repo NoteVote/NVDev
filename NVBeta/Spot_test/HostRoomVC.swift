@@ -9,19 +9,47 @@
 import UIKit
 import Parse
 
-class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate {
+class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMenuDelegate {
     
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var navBarTitle: UILabel!
     @IBOutlet weak var trackTitle: UILabel!
     @IBOutlet weak var trackArtist: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     //TODO: Make songQueue a list of Dictionaries. Each dictionary has title, artist, and votes as keys.
     var musicList:[[AnyObject]] = []
     var roomID = ""
     
     private var player:SPTAudioStreamingController?
     private let authController = SpotifyAuth()
+    
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        print("sideMenuShouldOpenSideMenu")
+        return true
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+    
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+        toggleSideMenuView()
+    }
     
     @IBAction func playPausePressed(sender: AnyObject) {
         if (self.player!.isPlaying) {
