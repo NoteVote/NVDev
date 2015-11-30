@@ -49,10 +49,10 @@ class RoomFinder {
     }
     
     /*Adds a room to list of Rooms*/
-    func addRoom(roomName:String, priv:Bool) {
+    func addRoom(roomName:String, id: String, priv:Bool) {
         let RoomObject = PFObject(className:"RoomObjects")
         RoomObject["roomName"] = roomName
-        RoomObject["roomID"] = ""
+        RoomObject["roomID"] = id
         RoomObject["roomPrivate"] = priv
         RoomObject.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
@@ -61,6 +61,7 @@ class RoomFinder {
                 
             } else {
                 // There was a problem, check error.description
+                print("WE FAILED")
             }
         }
         

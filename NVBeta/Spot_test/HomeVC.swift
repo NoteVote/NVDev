@@ -95,7 +95,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
 
         //Handles result from completion handler.
         serverLink.findRooms(){
-            (result: [String]) in print(result)
+            (result: [String]) in
             self.roomsNearby = result
             self.tableView.reloadData()
         }

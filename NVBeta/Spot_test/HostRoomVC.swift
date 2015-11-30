@@ -11,6 +11,14 @@ import Parse
 
 class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate {
     
+    @IBOutlet weak var albumImage: UIImageView!
+    @IBOutlet weak var navBarTitle: UILabel!
+    @IBOutlet weak var trackTitle: UILabel!
+    @IBOutlet weak var trackArtist: UILabel!
+    //TODO: Make songQueue a list of Dictionaries. Each dictionary has title, artist, and votes as keys.
+    var musicList:[[AnyObject]] = []
+    var roomID = ""
+    
     private var player:SPTAudioStreamingController?
     private let authController = SpotifyAuth()
     
@@ -29,29 +37,81 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate {
                 return
             }
             
-            /*SPTRequest.requestItemAtURI(NSURL(string: "spotify:album:4L1HDyfdGIkACuygktO7T7"), withSession: sessionObj, callback: { (error:NSError!, albumObj:AnyObject!) -> Void in
-            if error != nil {
-            println("Album lookup got error \(error)")
-            return
-            }
             
-            let album = albumObj as SPTAlbum
+            //TODO dynamic track URI
             
-            self.player?.playTrackProvider(album, callback: nil)
-            })*/
             
-            SPTRequest.performSearchWithQuery("let it go", queryType: SPTSearchQueryType.QueryTypeTrack, offset: 0, session: nil, callback: { (error:NSError!, result:AnyObject!) -> Void in
-                let trackListPage = result as! SPTListPage
+            self.player?.playURI(NSURL(string: "spotify:track:5pY3ovFxbvAg7reGZjJQSp"), callback: { (error:NSError!) -> Void in
+                if error != nil {
+                    print("Track lookup got error \(error)")
+                    return
+                }
                 
-                let partialTrack = trackListPage.items.first as! SPTPartialTrack
-                
-                SPTRequest.requestItemFromPartialObject(partialTrack, withSession: nil, callback: { (error:NSError!, results:AnyObject!) -> Void in
-                    let track = results as! SPTTrack
-                    self.player?.playTrackProvider(track, callback: nil)
-                })
             })
         })
     }
+    
+    //SPTAudioStreamingPlaybackDelegate methods
+
+    
+    //fires whenever the track changes
+    func audioStreaming(audioStreaming: SPTAudioStreamingController!, didChangeToTrack trackMetadata: [NSObject : AnyObject]!) {
+        
+        let albumURI = trackMetadata["SPTAudioStreamingMetadataAlbumURI"] as! String
+        trackTitle.text! = trackMetadata["SPTAudioStreamingMetadataTrackName"] as! String
+        trackArtist.text! = trackMetadata["SPTAudioStreamingMetadataArtistName"] as! String
+        
+        SPTAlbum.albumWithURI(NSURL(string: albumURI), session: nil) { (error:NSError!, albumObj:AnyObject!) -> Void in
+            let album = albumObj as! SPTAlbum
+            
+            
+            //TODO: I dont understand this dispatch async thing
+            
+            if let imgURL = album.largestCover.imageURL as NSURL! {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+                    var error:NSError? = nil
+                    var coverImage = UIImage()
+                    
+                   if let imageData = NSData(contentsOfURL: imgURL){
+                        
+                        if error == nil {
+                            coverImage = UIImage(data: imageData)!
+                        }
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.albumImage.image = coverImage
+                    })
+                })
+            }
+            
+        }
+
+    }
+    
+    //fires when track stops playing
+    func audioStreaming(audioStreaming: SPTAudioStreamingController!, didStopPlayingTrack trackUri: NSURL!) {
+        let roomID = userDefaults.objectForKey("roomID") as! String
+        serverLink.queueForRoomID(roomID){
+            (result: [[AnyObject]]) in print(result)
+            
+        }
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        let currentRoom = userDefaults.objectForKey("currentRoom") as! String
+        navBarTitle.text = currentRoom
+        roomID = userDefaults.objectForKey("roomID") as! String
+        serverLink.queueForRoomID(roomID){
+            (result: [[AnyObject]]) in print(result)
+            self.musicList = result
+            
+        }
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
