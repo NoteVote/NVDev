@@ -10,7 +10,7 @@ import UIKit
 
 class MyMenuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
-    let menuOptions:[String] = ["hello","goodbye","fucker","dick"]
+    let menuOptions:[String] = ["hello"]
     
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class MyMenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 4
+        return 1
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
