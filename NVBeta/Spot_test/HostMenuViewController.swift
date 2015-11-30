@@ -82,7 +82,7 @@ class HostMenuViewController: UITableViewController {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController1")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeVC")
             break
         case 1:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController2")

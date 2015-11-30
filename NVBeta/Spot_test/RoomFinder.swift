@@ -79,6 +79,7 @@ class RoomFinder {
             if error == nil {
                 let room = objects![0]
                 roomID = room.objectForKey("roomID") as! String
+                print(roomID)
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")

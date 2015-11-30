@@ -67,6 +67,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         serverLink.roomID(currentRoom){
             (result: String) in print(result)
             userDefaults.setObject(result, forKey: "roomID")
+            print(result)
         }
         
         //takes name of current room and saves it.
