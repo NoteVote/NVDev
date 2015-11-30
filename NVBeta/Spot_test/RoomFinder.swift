@@ -127,7 +127,7 @@ class RoomFinder {
     }
     
     //for Alpha Version
-    func getSongOptions(){
+    func getSongOptions(completion: (result: String) -> Void){
         let query = PFQuery(className: "SongLibrary")
         query.whereKey("trackTitle", notEqualTo: "")
         query.findObjectsInBackgroundWithBlock{
@@ -142,8 +142,23 @@ class RoomFinder {
                     self.musicOptions.append(song)
                 }
             }
+            else{
+                print("song options missing")
+            }
+            completion(result: "Done")
         }
     }
+    
+    func addSongToQueue(songName:String){
+        for song in self.musicOptions{
+            if( songName == (song[1] as! String)){
+                self.musicList.append(song)
+                print(self.musicList)
+                self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+            }
+        }
+    }
+    
     
     
     func queueForRoomID(roomID:String, completion: (result: [[AnyObject]]) -> Void){

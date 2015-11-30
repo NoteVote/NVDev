@@ -42,6 +42,7 @@
 		AD23D4C31BE2CA7F000B9F14 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4C21BE2CA7F000B9F14 /* Social.framework */; };
 		AD2483B21BE7E06400432200 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2483B11BE7E06400432200 /* ParseUI.framework */; };
 		AD2B2FF01C0C0BF3006E5F62 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B2FEF1C0C0BF3006E5F62 /* SearchVC.swift */; };
+		AD2B2FF21C0C15AE006E5F62 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B2FF11C0C15AE006E5F62 /* SearchTableCell.swift */; };
 		AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */; };
 		AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */; };
 		AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */; };
@@ -98,6 +99,7 @@
 		AD23D4C21BE2CA7F000B9F14 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AD2483B11BE7E06400432200 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		AD2B2FEF1C0C0BF3006E5F62 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		AD2B2FF11C0C15AE006E5F62 /* SearchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomFinder.swift; sourceTree = "<group>"; };
 		AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRoomVC.swift; path = ../CreateRoomVC.swift; sourceTree = "<group>"; };
 		AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveRoomVC.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				9118BF831BBB1F9900893CF8 /* SessionHandler.swift */,
 				91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */,
 				918A22C21BB1BAFB00CE76AF /* Main.storyboard */,
+				AD2B2FF11C0C15AE006E5F62 /* SearchTableCell.swift */,
 				AD2B2FEF1C0C0BF3006E5F62 /* SearchVC.swift */,
 				91E4FB2C1BEC069D0044762C /* HostRoomVC.swift */,
 				91E4FB2A1BE967C70044762C /* QueueTableCell.swift */,
@@ -328,6 +331,7 @@
 			files = (
 				9118BF8B1BBDE80700893CF8 /* ENSideMenu.swift in Sources */,
 				91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */,
+				AD2B2FF21C0C15AE006E5F62 /* SearchTableCell.swift in Sources */,
 				9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */,
 				9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */,
 				91E4FB331C0BFCB20044762C /* HostMenuNavigationController.swift in Sources */,
