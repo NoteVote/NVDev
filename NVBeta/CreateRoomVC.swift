@@ -17,8 +17,6 @@ class CreateRoomVC: UIViewController {
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         performSegueWithIdentifier("CreateRoom_Home", sender: nil)
-        //TODO: why is this here? useless server request?
-        //serverLink.removeRoom("hello")
     }
     
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {

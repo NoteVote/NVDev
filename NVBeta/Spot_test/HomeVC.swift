@@ -64,8 +64,10 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     /*CurrentPlayer Selected and moves to next page*/
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let currentRoom = roomsNearby[indexPath.row]
+        
+        //BUG need to use roomID only not currentRoom //
         serverLink.roomID(currentRoom){
-            (result: String) in print(result)
+            (result: String) in
             userDefaults.setObject(result, forKey: "roomID")
             
             //takes name of current room and saves it.
@@ -104,6 +106,8 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let sessionHandler = SessionHandler()
+        let session = sessionHandler.getSession()
         
     }
     

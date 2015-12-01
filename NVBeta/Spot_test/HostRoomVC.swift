@@ -77,7 +77,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     
     
     func playUsingSession(sessionObj:SPTSession!){
-        
+   
         let kClientID = authController.getClientID()
         
         if player == nil {
@@ -94,7 +94,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
                 let currentTrack = serverLink.musicList[0][0] as! String
-                serverLink.pop()
+                //serverLink.pop()
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -169,7 +169,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         super.viewWillAppear(true)
         let currentRoom = userDefaults.objectForKey("currentRoom") as! String
         navBarTitle.text = currentRoom
-        startSession()
+//        startSession()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -182,9 +182,8 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startSession()
-//        let sessionHandler = SessionHandler()
-//        let session = sessionHandler.getSession()
-//        playUsingSession(session)
+        if !serverLink.musicList.isEmpty {
+            startSession()
+        }
     }
 }
