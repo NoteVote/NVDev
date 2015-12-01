@@ -107,17 +107,19 @@ class RoomFinder {
     }
     
     func incrementSongUp(songName: String) {
-        for i in 0...musicList.count {
-            if songName == musicList[i][1] as! String {
+        for i in 0...serverLink.musicList.count-1 {
+            if songName == serverLink.musicList[i][1] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) + 1
+                return
             }
         }
     }
     
     func incrementSongDown(songName: String) {
-        for i in 0...musicList.count {
+        for i in 0...musicList.count-1 {
             if songName == musicList[i][1] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) - 1
+                return
             }
         }
     }
@@ -125,6 +127,7 @@ class RoomFinder {
     func getSongOptions(completion: (result: String) -> Void){
         let query = PFQuery(className: "SongLibrary")
         query.whereKey("trackTitle", notEqualTo: "")
+        self.musicOptions = []
         query.findObjectsInBackgroundWithBlock{
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -149,6 +152,7 @@ class RoomFinder {
                 self.musicList.append(song)
                 print(self.musicList)
                 self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+                return
             }
         }
     }

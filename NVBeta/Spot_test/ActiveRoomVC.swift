@@ -21,6 +21,10 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         performSegueWithIdentifier("ActiveRoom_Search", sender: nil)
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    
     //Table View Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

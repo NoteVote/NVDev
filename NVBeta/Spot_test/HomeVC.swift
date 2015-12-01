@@ -67,12 +67,12 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         serverLink.roomID(currentRoom){
             (result: String) in print(result)
             userDefaults.setObject(result, forKey: "roomID")
+            
+            //takes name of current room and saves it.
+            userDefaults.setObject(currentRoom, forKey: "currentRoom")
+            userDefaults.synchronize()
+            self.performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
         }
-        
-        //takes name of current room and saves it.
-        userDefaults.setObject(currentRoom, forKey: "currentRoom")
-        userDefaults.synchronize()
-        performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
     }
     
     /*Creating tableview cells*/
