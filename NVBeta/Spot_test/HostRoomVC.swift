@@ -18,8 +18,6 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     //TODO: Make songQueue a list of Dictionaries. Each dictionary has title, artist, and votes as keys.
-    var musicList:[[AnyObject]] = []
-    var roomID = ""
     
     private var player:SPTAudioStreamingController?
     private let authController = SpotifyAuth()
@@ -93,10 +91,10 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
                 return
             }
             
-            if !self.musicList.isEmpty {
+            if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
-                let currentTrack = self.musicList[0][0] as! String
-                self.musicList.removeAtIndex(0)
+                let currentTrack = serverLink.musicList[0][0] as! String
+                serverLink.pop()
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -117,9 +115,9 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         if trackMetadata == nil {
             
             //TODO: SELECT SONGS ON VOTES, SOMEHOW IMPLEMENT PLAYLIST INTEGRATION
-            if (!self.musicList.isEmpty) {
-                let currentTrack = self.musicList[0][0] as! String
-                self.musicList.removeAtIndex(0)
+            if (!serverLink.musicList.isEmpty) {
+                let currentTrack = serverLink.musicList[0][0] as! String
+                serverLink.musicList.removeAtIndex(0)
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -161,37 +159,10 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
 
     }
     
-    //fires when track stops playing
-   /* func audioStreaming(audioStreaming: SPTAudioStreamingController!, didStopPlayingTrack trackUri: NSURL!) {
-        /*let roomID = userDefaults.objectForKey("roomID") as! String
-        serverLink.queueForRoomID(roomID){
-            (result: [[AnyObject]]) in print(result)
-            
-        }*/
-        let currentTrack = self.musicList[0][0] as! String
-        self.musicList.removeAtIndex(0)
-        print(currentTrack)
-        self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
-            if error != nil {
-                print("Track lookup got error \(error)")
-                return
-            }
-            
-        })
-
-    }*/
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         let currentRoom = userDefaults.objectForKey("currentRoom") as! String
         navBarTitle.text = currentRoom
-        roomID = userDefaults.objectForKey("roomID") as! String
-        serverLink.queueForRoomID(roomID){
-            (result: [[AnyObject]]) in print(result)
-            self.musicList = result
-            
-        }
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

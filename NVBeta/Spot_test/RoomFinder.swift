@@ -89,6 +89,12 @@ class RoomFinder {
         }
     }
     
+    func pop(){
+        self.musicList.removeFirst()
+        saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+    }
+    
+    
     func saveRoomQueue(roomID:String) {
         let query = PFQuery(className: "RoomObjects")
         query.whereKey("roomID", equalTo: roomID)
