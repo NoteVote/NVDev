@@ -24,6 +24,9 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     private var player:SPTAudioStreamingController?
     private let authController = SpotifyAuth()
     
+    @IBAction func SearchButtonPressed(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("Host_Search", sender: nil)
+    }
     
     // MARK: - ENSideMenu Delegate
     func sideMenuWillOpen() {
@@ -191,6 +194,11 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let view:String = "Host"
+        let destinationVC = segue.destinationViewController as! SearchVC
+        destinationVC.preView = view
+    }
     
 
     

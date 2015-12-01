@@ -62,7 +62,12 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBAction func exitButtonPressed(sender: UIBarButtonItem) {
         //TODO: remember votes and remove user from room on server
         performSegueWithIdentifier("activeRoom_Home", sender: nil)
-        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let view:String = "ActiveRoom"
+        let destinationVC = segue.destinationViewController as! SearchVC
+        destinationVC.preView = view
     }
     
 

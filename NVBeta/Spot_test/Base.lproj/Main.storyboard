@@ -835,6 +835,7 @@
                     <connections>
                         <outlet property="tableView" destination="Mcm-au-itb" id="drI-m4-VGS"/>
                         <segue destination="ifF-hM-bMC" kind="show" identifier="Search_ActiveRoom" id="XLL-xL-9Q6"/>
+                        <segue destination="42F-CZ-pXw" kind="show" identifier="Search_Host" id="NUq-yw-HRS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uer-xQ-DAj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1001,6 +1002,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="Ydi-lB-llV">
                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="SearchButtonPressed:" destination="42F-CZ-pXw" id="a2g-N8-tcZ"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -1258,6 +1262,7 @@
                         <outlet property="playPauseButton" destination="4AP-Gi-VcN" id="RAv-mN-VT4"/>
                         <outlet property="trackArtist" destination="4KZ-F9-kwt" id="n76-Ex-vi1"/>
                         <outlet property="trackTitle" destination="fMT-y2-Lcl" id="xPP-jh-9ti"/>
+                        <segue destination="4sg-nC-llQ" kind="show" identifier="Host_Search" id="72C-Fl-sSr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4t4-Lb-xPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1274,5 +1279,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Ho6-XE-rV5"/>
         <segue reference="XLL-xL-9Q6"/>
+        <segue reference="tYq-9N-r8a"/>
+        <segue reference="NUq-yw-HRS"/>
     </inferredMetricsTieBreakers>
 </document>

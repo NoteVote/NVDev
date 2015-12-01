@@ -10,10 +10,17 @@ import UIKit
 
 class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var preView:String?
+    
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func BackButtonPressed(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("Search_ActiveRoom", sender: nil)
+        if(preView == "Host"){
+            performSegueWithIdentifier("Search_Host", sender: nil)
+        }
+        else{
+            performSegueWithIdentifier("Search_ActiveRoom", sender: nil)
+        }
     }
     
     @IBAction func SearchButtonPressed(sender: UIBarButtonItem) {
