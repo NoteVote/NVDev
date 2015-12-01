@@ -41,6 +41,11 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchTableCell
+        
+        let customColor = UIView()
+        customColor.backgroundColor = UIColor.clearColor()
+        cell.selectedBackgroundView = customColor
+        
         cell.songURI = serverLink.musicOptions[indexPath.row][0] as! String
         cell.songTitle.text! = serverLink.musicOptions[indexPath.row][1] as! String
         cell.artistLabel.text! = serverLink.musicOptions[indexPath.row][2] as! String

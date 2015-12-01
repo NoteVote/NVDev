@@ -43,6 +43,11 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     /*Creating tableview cells*/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as! QueueTableCell
+        
+        let customColor = UIView()
+        customColor.backgroundColor = UIColor.clearColor()
+        cell.selectedBackgroundView = customColor
+        
         if(!serverLink.musicList.isEmpty){
             if(!serverLink.newRoom ){
                 if(serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]!.contains(serverLink.musicList[indexPath.row][0] as! String )){

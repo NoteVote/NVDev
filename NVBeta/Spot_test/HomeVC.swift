@@ -83,6 +83,10 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         
+        let customColor = UIView()
+        customColor.backgroundColor = UIColor.clearColor()
+        cell.selectedBackgroundView = customColor
+        
         cell.textLabel!.textColor = UIColor(red: 125/255, green: 205/255, blue: 3/255, alpha: 1.0)
         cell.textLabel?.text = roomsNearby[indexPath.row]
         cell.textLabel?.font = UIFont.systemFontOfSize(30)
