@@ -44,6 +44,12 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as! QueueTableCell
         if(!serverLink.musicList.isEmpty){
+            if(!serverLink.newRoom ){
+                if(serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]!.contains(serverLink.musicList[indexPath.row][0] as! String )){
+                    cell.alreadyVoted()
+                }
+            }
+            cell.songURI = serverLink.musicList[indexPath.row][0] as! String
             cell.songTitle.text! = serverLink.musicList[indexPath.row][1] as! String
             cell.artistLabel.text! = serverLink.musicList[indexPath.row][2] as! String
             let voteNum:String = String(serverLink.musicList[indexPath.row][3] as! Int)
@@ -82,7 +88,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.separatorColor = UIColor.lightGrayColor()
         roomID = userDefaults.objectForKey("roomID") as! String
         serverLink.queueForRoomID(roomID){
-            (result: [[AnyObject]]) in print(result)
+            (result: [[AnyObject]]) in
             serverLink.musicList = result
             self.tableView.reloadData()
         }

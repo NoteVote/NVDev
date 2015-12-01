@@ -28,8 +28,8 @@ class CreateRoomVC: UIViewController {
             userDefaults.setObject(self.roomName.text!, forKey: "currentRoom")
             userDefaults.setObject(result, forKey: "roomID")
             userDefaults.synchronize()
+            self.performSegueWithIdentifier("CreateRoom_HostRoom", sender: nil)
         }
-        performSegueWithIdentifier("CreateRoom_HostRoom", sender: nil)
     }
     
     func setCurrentSession(session: SPTSession) {

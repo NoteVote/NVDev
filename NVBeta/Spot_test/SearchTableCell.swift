@@ -11,6 +11,7 @@ class SearchTableCell: UITableViewCell {
     @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var QueueButton: UIButton!
+    var songURI:String!
     var queued = false
 
     @IBAction func QueueButtonPressed(sender: UIButton) {
@@ -21,7 +22,7 @@ class SearchTableCell: UITableViewCell {
         } else {
             QueueButton.setBackgroundImage(UIImage(named: "voted"), forState: UIControlState.Normal)
             queued = !queued
-            serverLink.addSongToQueue(self.songTitle.text!)
+            serverLink.addSongToQueue(self.songURI)
         }
     }
     

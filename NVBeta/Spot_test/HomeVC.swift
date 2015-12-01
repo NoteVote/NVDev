@@ -71,6 +71,8 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
             //takes name of current room and saves it.
             userDefaults.setObject(currentRoom, forKey: "currentRoom")
             userDefaults.synchronize()
+            //Will see if the room has been entered before or if it is new.
+            serverLink.newRoomCheck()
             self.performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
         }
     }

@@ -12,9 +12,11 @@ import Parse
 class RoomFinder {
     
     private var Rooms:[String] = []
+    var songsVoted = [String:[String]]()
     var musicList:[[AnyObject]] = []
     var musicOptions:[[AnyObject]] = []
     var CurrentRoomID = ""
+    var newRoom = true
     
     
     //Testing defaults
@@ -64,7 +66,6 @@ class RoomFinder {
                 
             } else {
                 // There was a problem, check error.description
-                print("WE FAILED")
             }
         }
         
@@ -102,7 +103,6 @@ class RoomFinder {
             (objects:[PFObject]?, error: NSError?) -> Void in
             if(error == nil) {
                 let Object = objects![0]
-                print(serverLink.musicList)
                 Object.setObject(self.musicList, forKey: "queue")
                 Object.saveInBackground()
                 
@@ -112,19 +112,23 @@ class RoomFinder {
         }
     }
     
-    func incrementSongUp(songName: String) {
+    func incrementSongUp(songURI: String) {
         for i in 0...serverLink.musicList.count-1 {
-            if songName == serverLink.musicList[i][1] as! String {
+            if songURI == serverLink.musicList[i][0] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) + 1
+                serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]?.append(serverLink.musicList[i][0] as! String)
                 return
             }
         }
     }
     
-    func incrementSongDown(songName: String) {
+    func incrementSongDown(songURI: String) {
         for i in 0...musicList.count-1 {
-            if songName == musicList[i][1] as! String {
+            if songURI == musicList[i][0] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) - 1
+                //Finds index of song and
+                let index:Int = serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]!.indexOf(self.musicList[i][0] as! String)!
+                serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]!.removeAtIndex(index)
                 return
             }
         }
@@ -139,11 +143,20 @@ class RoomFinder {
             if error == nil {
                 for object in objects! {
                     var song:[AnyObject] = []
-                    song.append(object.objectForKey("uri") as! String)
-                    song.append(object.objectForKey("trackTitle") as! String)
-                    song.append(object.objectForKey("trackArtist") as! String)
-                    song.append(0)
-                    self.musicOptions.append(song)
+                    var inList = false
+                    let testUri = object.objectForKey("uri") as! String
+                    for Track in self.musicList {
+                        if(Track[0] as! String == testUri){
+                            inList = true
+                        }
+                    }
+                    if(!inList){
+                        song.append(object.objectForKey("uri") as! String)
+                        song.append(object.objectForKey("trackTitle") as! String)
+                        song.append(object.objectForKey("trackArtist") as! String)
+                        song.append(0)
+                        self.musicOptions.append(song)
+                    }
                 }
             } else {
                 print("song options missing")
@@ -152,12 +165,12 @@ class RoomFinder {
         }
     }
     
-    func addSongToQueue(songName:String){
+    func addSongToQueue(songURI:String){
         for song in self.musicOptions{
-            if( songName == (song[1] as! String)){
+            if( songURI == (song[0] as! String)){
                 self.musicList.append(song)
-                print(self.musicList)
                 self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+                
                 return
             }
         }
@@ -185,6 +198,23 @@ class RoomFinder {
             completion(result: musicList)
         }
     }
+    
+    func newRoomCheck(){
+        let test = songsVoted.indexForKey(userDefaults.objectForKey("roomID") as! String)
+        if(test == nil){
+            self.newRoom = true
+            self.songsVoted[userDefaults.objectForKey("roomID") as! String] = []
+            
+        }
+        else{
+            self.newRoom = false
+        }
+    }
+    
+    
+    
+    
+    
     
     func removeRoom(roomName:String) {
         //no clue yet how to do this.
