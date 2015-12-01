@@ -66,12 +66,11 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         let currentRoom = roomsNearby[indexPath.row]
         serverLink.roomID(currentRoom){
             (result: String) in print(result)
-            self.currentRoomID = result
+            userDefaults.setObject(result, forKey: "roomID")
         }
         
         //takes name of current room and saves it.
         userDefaults.setObject(currentRoom, forKey: "currentRoom")
-        userDefaults.setObject(currentRoomID, forKey: "roomID")
         userDefaults.synchronize()
         performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
     }

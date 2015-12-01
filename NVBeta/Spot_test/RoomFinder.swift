@@ -12,6 +12,9 @@ import Parse
 class RoomFinder {
     
     private var Rooms:[String] = []
+    var musicList:[[AnyObject]] = []
+    var musicOptions:[[AnyObject]] = []
+    var CurrentRoomID = ""
     
     
     //Testing defaults
@@ -81,14 +84,66 @@ class RoomFinder {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
             }
+        
+            completion(result: roomID)
         }
-        completion(result: roomID)
+    }
+    
+    func saveRoomQueue(roomID:String) {
+        let query = PFQuery(className: "RoomObjects")
+        query.whereKey("roomID", equalTo: roomID)
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error: NSError?) -> Void in
+            if(error == nil) {
+                let Object = objects![0]
+                print(serverLink.musicList)
+                Object.setObject(self.musicList, forKey: "queue")
+                Object.saveInBackground()
+                
+            } else {
+                print("Error: no room with id: " + roomID)
+            }
+        }
+    }
+    
+    func incrementSongUp(songName: String) {
+        for i in 0...musicList.count {
+            if songName == musicList[i][1] as! String {
+                serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) + 1
+            }
+        }
+    }
+    
+    func incrementSongDown(songName: String) {
+        for i in 0...musicList.count {
+            if songName == musicList[i][1] as! String {
+                serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) - 1
+            }
+        }
+    }
+    
+    func getSongOptions(){
+        let query = PFQuery(className: "SongLibrary")
+        query.whereKey("trackTitle", notEqualTo: "")
+        query.findObjectsInBackgroundWithBlock{
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                for object in objects! {
+                    var song:[AnyObject] = []
+                    song.append(object.objectForKey("uri") as! String)
+                    song.append(object.objectForKey("trackTitle") as! String)
+                    song.append(object.objectForKey("trackArtist") as! String)
+                    song.append(0)
+                    self.musicOptions.append(song)
+                }
+            }
+        }
     }
     
     func queueForRoomID(roomID:String, completion: (result: [[AnyObject]]) -> Void){
         var musicList:[[AnyObject]] = [[]]
         let query = PFQuery(className: "RoomObjects")
-        query.whereKey("roomPin", equalTo: "tester")
+        query.whereKey("roomID", equalTo: roomID)
         query.findObjectsInBackgroundWithBlock{
             (objects: [PFObject]?, error: NSError?) -> Void in
             

@@ -90,18 +90,19 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
                 return
             }
             
-            
-            //TODO dynamic track URI
-            let currentTrack = self.musicList[0][0] as! String
-            self.musicList.removeAtIndex(0)
-            print(currentTrack)
-            self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
-                if error != nil {
-                    print("Track lookup got error \(error)")
-                    return
-                }
-                
-            })
+            if !self.musicList.isEmpty {
+                //TODO dynamic track URI
+                let currentTrack = self.musicList[0][0] as! String
+                self.musicList.removeAtIndex(0)
+                print(currentTrack)
+                self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
+                    if error != nil {
+                        print("Track lookup got error \(error)")
+                        return
+                    }
+                    
+                })
+            }
         })
     }
     

@@ -13,8 +13,8 @@ class SpotifyAuth {
     
     private let kClientID = "ddf55f7bf8ec47e1a9a998c53207adb2"
     private let kCallbackURL = "notevote-login://callback"
-    private let kTokenSwapURL = "http://localhost:1234/swap"
-    private let kTokenRefreshURL = "http://localhost:1234/refresh"
+    private let kTokenSwapURL = ""
+    private let kTokenRefreshURL = ""
     
     func setParameters(auth: SPTAuth){
         auth.clientID = kClientID

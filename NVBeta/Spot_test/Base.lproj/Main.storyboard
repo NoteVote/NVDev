@@ -681,9 +681,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="upt-JC-Env">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="20" width="400" height="780"/>
-                                </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUH-Vz-DEn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -707,9 +704,6 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="20" width="400" height="44"/>
-                                </variation>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eti-8F-Mng">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -726,8 +720,7 @@
                                         <exclude reference="fjH-v2-DoI"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="80" y="31" width="240" height="21"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="DA1-Ig-jrg"/>
                                         <include reference="fjH-v2-DoI"/>
@@ -746,8 +739,7 @@
                                         <exclude reference="NIr-sA-Gg8"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="80" y="100" width="240" height="240"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="4LJ-WX-e4K"/>
                                         <include reference="NIr-sA-Gg8"/>
@@ -769,8 +761,7 @@
                                         <exclude reference="Zja-SX-Oyy"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="380" width="360" height="38"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Bcu-pL-OEY"/>
                                         <include reference="Zja-SX-Oyy"/>
@@ -796,8 +787,7 @@
                                         <exclude reference="uO9-xr-Z9M"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="418" width="360" height="38"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="ETR-Gh-0WX"/>
                                         <exclude reference="Hb6-qE-6V3"/>
@@ -821,8 +811,7 @@
                                         <exclude reference="hEu-CA-8pw"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="102" y="700" width="196" height="92"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="82O-oN-CTl"/>
                                         <include reference="hEu-CA-8pw"/>
@@ -845,8 +834,7 @@
                                         <exclude reference="r3W-zX-wGw"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="137" y="526" width="127" height="88"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Tye-dK-7SR"/>
                                         <include reference="r3W-zX-wGw"/>
@@ -901,25 +889,25 @@
                                 <exclude reference="4AP-Gi-VcN"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="2Xn-qL-ZDq"/>
+                                <exclude reference="CRA-EH-oii"/>
+                                <exclude reference="gYu-fi-HfB"/>
+                                <exclude reference="R9u-GK-Du8"/>
+                                <exclude reference="dio-QQ-6mT"/>
+                                <exclude reference="9s2-zX-BmM"/>
+                                <exclude reference="vYI-vE-rho"/>
+                                <exclude reference="JQU-xs-z5K"/>
+                                <exclude reference="Q8R-nN-OOW"/>
+                                <exclude reference="5HG-Qn-qPY"/>
+                                <exclude reference="sJQ-Vx-ig1"/>
                                 <exclude reference="4Al-X9-C2r"/>
                                 <exclude reference="7Cr-Fx-7av"/>
                                 <exclude reference="L9y-xu-Yak"/>
+                                <exclude reference="gjj-ny-oRj"/>
                                 <exclude reference="Ma3-b4-d88"/>
                                 <exclude reference="nMV-HJ-tzm"/>
                                 <exclude reference="oop-gG-uoY"/>
                                 <exclude reference="w56-M3-Ty5"/>
-                                <exclude reference="JQU-xs-z5K"/>
-                                <exclude reference="Q8R-nN-OOW"/>
-                                <exclude reference="gjj-ny-oRj"/>
-                                <exclude reference="5HG-Qn-qPY"/>
-                                <exclude reference="sJQ-Vx-ig1"/>
-                                <exclude reference="R9u-GK-Du8"/>
-                                <exclude reference="dio-QQ-6mT"/>
-                                <exclude reference="CRA-EH-oii"/>
-                                <exclude reference="gYu-fi-HfB"/>
-                                <exclude reference="9s2-zX-BmM"/>
-                                <exclude reference="vYI-vE-rho"/>
-                                <exclude reference="2Xn-qL-ZDq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -934,25 +922,25 @@
                                 <include reference="4AP-Gi-VcN"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="2Xn-qL-ZDq"/>
+                                <include reference="CRA-EH-oii"/>
+                                <include reference="gYu-fi-HfB"/>
+                                <include reference="R9u-GK-Du8"/>
+                                <include reference="dio-QQ-6mT"/>
+                                <include reference="9s2-zX-BmM"/>
+                                <include reference="vYI-vE-rho"/>
+                                <include reference="JQU-xs-z5K"/>
+                                <include reference="Q8R-nN-OOW"/>
+                                <include reference="5HG-Qn-qPY"/>
+                                <include reference="sJQ-Vx-ig1"/>
                                 <include reference="4Al-X9-C2r"/>
                                 <include reference="7Cr-Fx-7av"/>
                                 <include reference="L9y-xu-Yak"/>
+                                <include reference="gjj-ny-oRj"/>
                                 <include reference="Ma3-b4-d88"/>
                                 <include reference="nMV-HJ-tzm"/>
                                 <include reference="oop-gG-uoY"/>
                                 <include reference="w56-M3-Ty5"/>
-                                <include reference="JQU-xs-z5K"/>
-                                <include reference="Q8R-nN-OOW"/>
-                                <include reference="gjj-ny-oRj"/>
-                                <include reference="5HG-Qn-qPY"/>
-                                <include reference="sJQ-Vx-ig1"/>
-                                <include reference="R9u-GK-Du8"/>
-                                <include reference="dio-QQ-6mT"/>
-                                <include reference="CRA-EH-oii"/>
-                                <include reference="gYu-fi-HfB"/>
-                                <include reference="9s2-zX-BmM"/>
-                                <include reference="vYI-vE-rho"/>
-                                <include reference="2Xn-qL-ZDq"/>
                             </mask>
                         </variation>
                     </view>
@@ -977,6 +965,6 @@
         <image name="spotify-login" width="488" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="92O-nV-S4i"/>
+        <segue reference="Ho6-XE-rV5"/>
     </inferredMetricsTieBreakers>
 </document>
