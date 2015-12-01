@@ -166,7 +166,7 @@ class RoomFinder {
     
     
     func queueForRoomID(roomID:String, completion: (result: [[AnyObject]]) -> Void){
-        var musicList:[[AnyObject]] = [[]]
+        var musicList:[[AnyObject]] = []
         let query = PFQuery(className: "RoomObjects")
         query.whereKey("roomID", equalTo: roomID)
         query.findObjectsInBackgroundWithBlock{
@@ -174,7 +174,10 @@ class RoomFinder {
             
             if error == nil {
                 let room = objects![0]
-                musicList = room.objectForKey("queue") as! [[AnyObject]]
+                let queue = room.objectForKey("queue")
+                if queue != nil {
+                    musicList = queue as! [[AnyObject]]
+                }
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")

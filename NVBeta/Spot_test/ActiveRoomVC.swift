@@ -43,11 +43,12 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     /*Creating tableview cells*/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as! QueueTableCell
-        
-        cell.songTitle.text! = serverLink.musicList[indexPath.row][1] as! String
-        cell.artistLabel.text! = serverLink.musicList[indexPath.row][2] as! String
-        let voteNum:String = String(serverLink.musicList[indexPath.row][3] as! Int)
-        cell.voteButton.setTitle(voteNum, forState: UIControlState.Normal)
+        if(!serverLink.musicList.isEmpty){
+            cell.songTitle.text! = serverLink.musicList[indexPath.row][1] as! String
+            cell.artistLabel.text! = serverLink.musicList[indexPath.row][2] as! String
+            let voteNum:String = String(serverLink.musicList[indexPath.row][3] as! Int)
+            cell.voteButton.setTitle(voteNum, forState: UIControlState.Normal)
+        }
         
         //TODO: somehow link to prototype cell QueueTableCell.swift
         return cell
@@ -65,9 +66,11 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let view:String = "ActiveRoom"
-        let destinationVC = segue.destinationViewController as! SearchVC
-        destinationVC.preView = view
+        if(segue == "ActiveRoom_Search"){
+            let view:String = "ActiveRoom"
+            let destinationVC = segue.destinationViewController as! SearchVC
+            destinationVC.preView = view
+        }
     }
     
 
