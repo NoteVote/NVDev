@@ -13,6 +13,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func BackButtonPressed(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("Search_ActiveRoom", sender: nil)
     }
     
     @IBAction func SearchButtonPressed(sender: UIBarButtonItem) {
@@ -20,7 +21,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        return 60
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,7 +33,9 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("songCell", forIndexPath: indexPath) as! QueueTableCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchTableCell
+        cell.songTitle.text! = serverLink.musicOptions[indexPath.row][1] as! String
+        cell.artistLabel.text! = serverLink.musicOptions[indexPath.row][2] as! String
         return cell
     }
 
@@ -43,9 +46,9 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
             //for Alpha version
-            serverLink.getSongOptions()
-            
+        serverLink.getSongOptions() {
+            (result: String) in print(result)
+            self.tableView.reloadData()
+        }
     }
-
-
 }

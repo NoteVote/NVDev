@@ -161,7 +161,7 @@
         <!--HomeVC-->
         <scene sceneID="Ynj-uY-hjf">
             <objects>
-                <viewController id="JRy-CS-J1I" customClass="HomeVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JRy-CS-J1I" customClass="HomeVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8SX-sd-QrJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Lr0-nr-9yG"/>
@@ -965,6 +965,6 @@
         <image name="spotify-login" width="488" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ho6-XE-rV5"/>
+        <segue reference="wup-XS-uQE"/>
     </inferredMetricsTieBreakers>
 </document>

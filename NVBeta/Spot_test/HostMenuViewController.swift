@@ -10,7 +10,7 @@ import UIKit
 
 class HostMenuViewController: UITableViewController {
     var selectedMenuItem : Int = 0
-    let menuOptions:[String] = ["Close Room"]
+    let menuOptions:[String] = ["Go to Select Room"]
     
     
     override func viewDidLoad() {
@@ -72,7 +72,7 @@ class HostMenuViewController: UITableViewController {
         print("did select row: \(indexPath.row)")
         
         if (indexPath.row == selectedMenuItem) {
-            return
+            //return
         }
         
         selectedMenuItem = indexPath.row
@@ -82,7 +82,7 @@ class HostMenuViewController: UITableViewController {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController1")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Home")
             break
         case 1:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController2")
@@ -94,7 +94,8 @@ class HostMenuViewController: UITableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4")
             break
         }
-        sideMenuController()?.setContentViewController(destViewController)
+        //sideMenuController()?.setContentViewController(destViewController)
+        self.presentViewController(destViewController, animated: false, completion: nil)
     }
     
     
@@ -107,6 +108,7 @@ class HostMenuViewController: UITableViewController {
     // Pass the selected object to the new view controller.
     }
     */
+    
     
 }
 

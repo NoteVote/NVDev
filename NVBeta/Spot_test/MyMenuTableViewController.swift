@@ -10,7 +10,7 @@ import UIKit
 
 class MyMenuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
-    let menuOptions:[String] = ["hello","goodbye","fucker","dick"]
+    let menuOptions:[String] = ["go to host"]
     
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class MyMenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 4
+        return 1
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -82,7 +82,7 @@ class MyMenuTableViewController: UITableViewController {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController1") 
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController1")
             break
         case 1:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController2")
@@ -94,7 +94,7 @@ class MyMenuTableViewController: UITableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4") 
             break
         }
-        sideMenuController()?.setContentViewController(destViewController)
+        //sideMenuController()?.setContentViewController(destViewController)
     }
     
 
