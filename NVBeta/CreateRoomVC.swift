@@ -21,13 +21,11 @@ class CreateRoomVC: UIViewController {
     
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
         serverLink.addRoom(roomName.text!, id: session!.canonicalUsername, priv: false)
-        serverLink.roomID(roomName.text!){
-            (result: String) in print(result)
-            userDefaults.setObject(self.roomName.text!, forKey: "currentRoom")
-            userDefaults.setObject(result, forKey: "roomID")
-            userDefaults.synchronize()
-            self.performSegueWithIdentifier("CreateRoom_HostRoom", sender: nil)
-        }
+        userDefaults.setObject(self.roomName.text!, forKey: "currentRoom")
+        userDefaults.setObject(session!.canonicalUsername, forKey: "roomID")
+        userDefaults.synchronize()
+        self.performSegueWithIdentifier("CreateRoom_HostRoom", sender: nil)
+        
     }
     
     func setCurrentSession(session: SPTSession) {
