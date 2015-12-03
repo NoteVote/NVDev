@@ -15,7 +15,6 @@ class RoomFinder {
     var songsVoted = [String:[String]]()
     var musicList:[[AnyObject]] = []
     var musicOptions:[[AnyObject]] = []
-    var CurrentRoomID = ""
     
     
     //Testing defaults
@@ -87,10 +86,27 @@ class RoomFinder {
             completion(result: roomID)
         }
     }
+    func pop() ->String {
+        var highest:(Int,Int) = (0,0)
+        for i in 0...musicList.count-1 {
+            let voteCount = musicList[i][3] as! Int
+            if(voteCount > highest.0){
+                highest.0 = voteCount
+                highest.1 = i
+            }
+        }
+        let uri = musicList[highest.1][0] as! String
+        update(highest.1)
+        return uri
+    }
     
-    func pop(){
-        self.musicList.removeFirst()
-        saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+    func update(index:Int){
+        self.queueForRoomID(userDefaults.objectForKey("roomID") as! String){
+            (result: [[AnyObject]]) in
+            self.musicList = result
+            self.musicList.removeAtIndex(index)
+            self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+        }
     }
     
     

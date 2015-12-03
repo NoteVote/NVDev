@@ -30,20 +30,16 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     func sideMenuWillOpen() {
         print("sideMenuWillOpen")
     }
-    
     func sideMenuWillClose() {
         print("sideMenuWillClose")
     }
-    
     func sideMenuShouldOpenSideMenu() -> Bool {
         print("sideMenuShouldOpenSideMenu")
         return true
     }
-    
     func sideMenuDidClose() {
         print("sideMenuDidClose")
     }
-    
     func sideMenuDidOpen() {
         print("sideMenuDidOpen")
     }
@@ -51,7 +47,6 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     @IBAction func menuButtonPressed(sender: AnyObject) {
         toggleSideMenuView()
     }
-    
     @IBAction func playPausePressed(sender: AnyObject) {
         if (self.player!.isPlaying) {
             
@@ -116,8 +111,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             
             //TODO: SELECT SONGS ON VOTES, SOMEHOW IMPLEMENT PLAYLIST INTEGRATION
             if (!serverLink.musicList.isEmpty) {
-                let currentTrack = serverLink.musicList[0][0] as! String
-                serverLink.musicList.removeAtIndex(0)
+                let currentTrack = serverLink.pop()
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -139,7 +133,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
                 
                 if let imgURL = album.largestCover.imageURL as NSURL! {
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-                        var error:NSError? = nil
+                        let error:NSError? = nil
                         var coverImage = UIImage()
                         
                        if let imageData = NSData(contentsOfURL: imgURL){
