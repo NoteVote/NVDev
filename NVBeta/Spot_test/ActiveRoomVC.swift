@@ -63,7 +63,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let customColor = UIView()
         customColor.backgroundColor = UIColor.clearColor()
         cell.selectedBackgroundView = customColor
-        
+        print(serverLink.musicList)
         if(!serverLink.musicList.isEmpty){
             cell.songURI = serverLink.musicList[indexPath.row][0] as! String
             cell.songTitle.text! = serverLink.musicList[indexPath.row][1] as! String
@@ -71,11 +71,14 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             let voteNum:String = String(serverLink.musicList[indexPath.row][3] as! Int)
             cell.voteButton.setTitle(voteNum, forState: UIControlState.Normal)
             //initializing cells to voted state or unvoted state.
-            if(serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]!.contains(cell.songURI)){
-                cell.alreadyVoted()
-            }
-            else{
-                cell.notalreadyVoted()
+            let votes = serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]
+            if(votes != nil){
+                if (votes!.contains(cell.songURI)){
+                    cell.alreadyVoted()
+                }
+                else{
+                    cell.notalreadyVoted()
+                }
             }
         }
         
@@ -107,6 +110,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        serverLink.musicList = []
         navBarTitle.text! = userDefaults.objectForKey("currentRoom") as! String
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorColor = UIColor.lightGrayColor()

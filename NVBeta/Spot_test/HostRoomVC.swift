@@ -88,8 +88,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             
             if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
-                let currentTrack = serverLink.musicList[0][0] as! String
-                serverLink.musicList.removeAtIndex(0)
+                let currentTrack = serverLink.pop()
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -163,7 +162,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         super.viewWillAppear(true)
         let currentRoom = userDefaults.objectForKey("currentRoom") as! String
         navBarTitle.text = currentRoom
-//        startSession()
+//      startSession()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

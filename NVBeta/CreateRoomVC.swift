@@ -43,8 +43,9 @@ class CreateRoomVC: UIViewController, ENSideMenuDelegate {
     }
     
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
+        print(roomName.text!)
         serverLink.addRoom(roomName.text!, id: session!.canonicalUsername, priv: false)
-        userDefaults.setObject(self.roomName.text!, forKey: "currentRoom")
+        userDefaults.setObject(roomName.text!, forKey: "currentRoom")
         userDefaults.setObject(session!.canonicalUsername, forKey: "roomID")
         userDefaults.synchronize()
         self.performSegueWithIdentifier("CreateRoom_HostRoom", sender: nil)
