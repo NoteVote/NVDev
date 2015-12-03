@@ -26,8 +26,6 @@
 		918A22E41BB1BBC200CE76AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A22E31BB1BBC200CE76AF /* SystemConfiguration.framework */; };
 		91E4FB2B1BE967C70044762C /* QueueTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB2A1BE967C70044762C /* QueueTableCell.swift */; };
 		91E4FB2D1BEC069D0044762C /* HostRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB2C1BEC069D0044762C /* HostRoomVC.swift */; };
-		91E4FB311C0BFC320044762C /* HostMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB301C0BFC320044762C /* HostMenuViewController.swift */; };
-		91E4FB331C0BFCB20044762C /* HostMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4FB321C0BFCB20044762C /* HostMenuNavigationController.swift */; };
 		91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */; };
 		AD23D4AB1BE2C9A7000B9F14 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4AA1BE2C9A7000B9F14 /* Bolts.framework */; };
 		AD23D4AD1BE2C9B9000B9F14 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4AC1BE2C9B9000B9F14 /* Parse.framework */; };
@@ -83,8 +81,6 @@
 		918A22E51BB1BCEA00CE76AF /* Spot_test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spot_test-Bridging-Header.h"; sourceTree = "<group>"; };
 		91E4FB2A1BE967C70044762C /* QueueTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueTableCell.swift; sourceTree = "<group>"; };
 		91E4FB2C1BEC069D0044762C /* HostRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostRoomVC.swift; sourceTree = "<group>"; };
-		91E4FB301C0BFC320044762C /* HostMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostMenuViewController.swift; sourceTree = "<group>"; };
-		91E4FB321C0BFCB20044762C /* HostMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostMenuNavigationController.swift; sourceTree = "<group>"; };
 		91EFD91A1BBB163200818FA7 /* SpotifyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		AD23D4AA1BE2C9A7000B9F14 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		AD23D4AC1BE2C9B9000B9F14 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -239,10 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				9118BF871BBDE80700893CF8 /* ENSideMenu.swift */,
-				91E4FB301C0BFC320044762C /* HostMenuViewController.swift */,
 				9118BF881BBDE80700893CF8 /* ENSideMenuNavigationController.swift */,
 				9118BF891BBDE80700893CF8 /* MyMenuTableViewController.swift */,
-				91E4FB321C0BFCB20044762C /* HostMenuNavigationController.swift */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -358,9 +352,7 @@
 				910808631C0DF9CB00FBF037 /* SearchTableCell.swift in Sources */,
 				9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */,
 				9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */,
-				91E4FB331C0BFCB20044762C /* HostMenuNavigationController.swift in Sources */,
 				AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */,
-				91E4FB311C0BFC320044762C /* HostMenuViewController.swift in Sources */,
 				9118BF8C1BBDE80700893CF8 /* ENSideMenuNavigationController.swift in Sources */,
 				9118BF8D1BBDE80700893CF8 /* MyMenuTableViewController.swift in Sources */,
 				AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */,

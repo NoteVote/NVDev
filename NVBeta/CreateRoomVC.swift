@@ -9,11 +9,34 @@
 import UIKit
 import Parse
 
-class CreateRoomVC: UIViewController {
+class CreateRoomVC: UIViewController, ENSideMenuDelegate {
     
     let sessionHandler = SessionHandler()
     var session:SPTSession? = nil
     @IBOutlet weak var roomName: UITextField!
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        print("sideMenuShouldOpenSideMenu")
+        return false
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         performSegueWithIdentifier("CreateRoom_Home", sender: nil)
@@ -34,6 +57,7 @@ class CreateRoomVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sideMenuController()?.sideMenu?.delegate = self;
         let sessionHandler = SessionHandler()
         let session = sessionHandler.getSession()
         setCurrentSession(session!)
