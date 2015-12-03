@@ -94,7 +94,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
                 let currentTrack = serverLink.musicList[0][0] as! String
-                //serverLink.pop()
+                serverLink.musicList.removeAtIndex(0)
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {

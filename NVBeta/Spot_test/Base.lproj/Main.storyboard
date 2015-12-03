@@ -173,6 +173,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="JJi-HH-VLA">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="600"/>
+                                </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8X-Ar-cFA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -197,6 +200,9 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                </variation>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-zL-hc0">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -215,6 +221,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="98" width="560" height="482"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="JRy-CS-J1I" id="KG1-ze-cPY"/>
                                     <outlet property="delegate" destination="JRy-CS-J1I" id="70c-J9-Cz9"/>
@@ -307,7 +316,7 @@
         <!--Active RoomVC-->
         <scene sceneID="99X-Zl-ts6">
             <objects>
-                <viewController id="ifF-hM-bMC" customClass="ActiveRoomVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Active" id="ifF-hM-bMC" customClass="ActiveRoomVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vma-rX-NMt"/>
                         <viewControllerLayoutGuide type="bottom" id="BX0-xD-rgS"/>
@@ -319,6 +328,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="xda-8n-lrD">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DO-J2-zTW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -344,6 +356,9 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                </variation>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnw-Cb-YFk">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -351,6 +366,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.49019607840000001" green="0.80392156859999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="300" y="30" width="0.0" height="0.0"/>
+                                </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-bL-JoP">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -513,6 +531,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="64" width="560" height="516"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="ifF-hM-bMC" id="Sre-ut-MGL"/>
                                     <outlet property="delegate" destination="ifF-hM-bMC" id="bOf-eQ-fah"/>
@@ -600,7 +621,7 @@
         <!--SearchVC-->
         <scene sceneID="OpL-1m-j7B">
             <objects>
-                <viewController id="4sg-nC-llQ" customClass="SearchVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Search" id="4sg-nC-llQ" customClass="SearchVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I6Y-3F-xxd"/>
                         <viewControllerLayoutGuide type="bottom" id="Wxs-Ar-yxj"/>
@@ -612,6 +633,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="HKV-HG-cDX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5r-DI-fx8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -646,6 +670,9 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                </variation>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mcm-au-itb">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -772,6 +799,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="64" width="560" height="516"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="4sg-nC-llQ" id="Rf8-K7-3k5"/>
                                     <outlet property="delegate" destination="4sg-nC-llQ" id="aMz-qk-dIN"/>
@@ -849,7 +879,7 @@
         <!--Create RoomVC-->
         <scene sceneID="3hF-yH-Hwa">
             <objects>
-                <viewController id="Cr3-3m-eo6" customClass="CreateRoomVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Create" id="Cr3-3m-eo6" customClass="CreateRoomVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RtG-Yi-PRl"/>
                         <viewControllerLayoutGuide type="bottom" id="IPt-J0-lNo"/>
@@ -882,6 +912,7 @@
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="tuJ-iB-gcT">
                                             <connections>
                                                 <action selector="doneButtonPressed:" destination="Cr3-3m-eo6" id="wmV-vV-hse"/>
+                                                <segue destination="42F-CZ-pXw" kind="show" identifier="CreateRoom_HostRoom" id="c5C-EY-S0U"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -947,34 +978,16 @@
                     <connections>
                         <outlet property="roomName" destination="Di6-aP-Poa" id="fb6-m6-hQX"/>
                         <segue destination="JRy-CS-J1I" kind="show" identifier="CreateRoom_Home" id="92O-nV-S4i"/>
-                        <segue destination="VXj-aW-w8h" kind="show" identifier="CreateRoom_HostRoom" id="NT7-io-zah"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="taf-8C-F34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2467.5" y="-138.75"/>
         </scene>
-        <!--Host Menu Navigation Controller-->
-        <scene sceneID="V5I-Sn-Xvt">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="VXj-aW-w8h" customClass="HostMenuNavigationController" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6gA-pR-Ehl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="42F-CZ-pXw" kind="relationship" relationship="rootViewController" id="EU7-Q1-SsU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nYg-XI-oIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3346.5" y="-138.75"/>
-        </scene>
         <!--Host RoomVC-->
         <scene sceneID="XYZ-o1-i2F">
             <objects>
-                <viewController id="42F-CZ-pXw" customClass="HostRoomVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Host" id="42F-CZ-pXw" customClass="HostRoomVC" customModule="NVBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z3S-EE-6xH"/>
                         <viewControllerLayoutGuide type="bottom" id="pp7-eD-5Bb"/>
@@ -1271,7 +1284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4t4-Lb-xPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4210.5" y="-138.75"/>
+            <point key="canvasLocation" x="3946.5" y="-138.75"/>
         </scene>
     </scenes>
     <resources>
@@ -1281,9 +1294,9 @@
         <image name="unvoted" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ho6-XE-rV5"/>
-        <segue reference="XLL-xL-9Q6"/>
-        <segue reference="tYq-9N-r8a"/>
+        <segue reference="wup-XS-uQE"/>
+        <segue reference="wLP-qv-tEz"/>
         <segue reference="NUq-yw-HRS"/>
+        <segue reference="72C-Fl-sSr"/>
     </inferredMetricsTieBreakers>
 </document>

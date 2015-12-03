@@ -9,14 +9,36 @@
 import UIKit
 import Parse
 
-class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ENSideMenuDelegate {
 
     @IBOutlet weak var navBarTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     //TODO: Make songQueue a list of Dictionaries. Each dictionary has title, artist, and votes as keys.
     var roomID = ""
-
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        print("sideMenuShouldOpenSideMenu")
+        return false
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+    
     @IBAction func searchButtonPressed(sender: UIBarButtonItem) {
         performSegueWithIdentifier("ActiveRoom_Search", sender: nil)
     }
@@ -67,6 +89,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sideMenuController()?.sideMenu?.delegate = self;
         
     }
 

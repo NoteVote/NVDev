@@ -40,6 +40,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     func sideMenuDidOpen() {
         print("sideMenuDidOpen")
     }
+    
 
     @IBAction func menuButtonPressed(sender: AnyObject) {
         toggleSideMenuView()
@@ -110,6 +111,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sideMenuController()?.sideMenu?.delegate = self;
         let sessionHandler = SessionHandler()
         let session = sessionHandler.getSession()
         
