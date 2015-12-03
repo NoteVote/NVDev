@@ -71,16 +71,19 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.selectedBackgroundView = customColor
         
         if(!serverLink.musicList.isEmpty){
-            if(!serverLink.newRoom ){
-                if(serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]!.contains(serverLink.musicList[indexPath.row][0] as! String )){
-                    cell.alreadyVoted()
-                }
-            }
             cell.songURI = serverLink.musicList[indexPath.row][0] as! String
             cell.songTitle.text! = serverLink.musicList[indexPath.row][1] as! String
             cell.artistLabel.text! = serverLink.musicList[indexPath.row][2] as! String
             let voteNum:String = String(serverLink.musicList[indexPath.row][3] as! Int)
             cell.voteButton.setTitle(voteNum, forState: UIControlState.Normal)
+            if(serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]!.contains(cell.songURI)){
+                cell.alreadyVoted()
+                print("alreadyVoted")
+            }
+            else{
+                cell.notalreadyVoted()
+                print("not votd")
+            }
         }
         
         //TODO: somehow link to prototype cell QueueTableCell.swift

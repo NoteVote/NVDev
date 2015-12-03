@@ -114,7 +114,6 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         self.sideMenuController()?.sideMenu?.delegate = self;
         let sessionHandler = SessionHandler()
         let session = sessionHandler.getSession()
-        
     }
     
     override func didReceiveMemoryWarning() {

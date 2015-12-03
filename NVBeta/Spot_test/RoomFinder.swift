@@ -116,7 +116,7 @@ class RoomFinder {
         for i in 0...serverLink.musicList.count-1 {
             if songURI == serverLink.musicList[i][0] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) + 1
-                serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]?.append(serverLink.musicList[i][0] as! String)
+                serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]?.append(songURI)
                 return
             }
         }
@@ -127,7 +127,7 @@ class RoomFinder {
             if songURI == musicList[i][0] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) - 1
                 //Finds index of song and
-                let index:Int = serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]!.indexOf(self.musicList[i][0] as! String)!
+                let index:Int = serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]!.indexOf(songURI)!
                 serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]!.removeAtIndex(index)
                 return
             }
