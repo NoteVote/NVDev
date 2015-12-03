@@ -11,12 +11,11 @@ import Parse
 
 class RoomFinder {
     
-    private var Rooms:[String] = []
+    private var Rooms:[(String,String)] = []
     var songsVoted = [String:[String]]()
     var musicList:[[AnyObject]] = []
     var musicOptions:[[AnyObject]] = []
     var CurrentRoomID = ""
-    var newRoom = true
     
     
     //Testing defaults
@@ -25,8 +24,8 @@ class RoomFinder {
      *Contains a completion handler that holds return until completion 
      *Eventually will return rooms with the */
     
-    func findRooms(completion: (result: [String]) -> Void){
-        
+    func findRooms(completion: (result: [(String,String)]) -> Void){
+        self.Rooms = []
         let query = PFQuery(className: "RoomObjects")
         //NEED TO FIX THIS BEFORE RELEASEING
         query.whereKey("roomID", notEqualTo: "0")
@@ -39,10 +38,9 @@ class RoomFinder {
                 // Do something with the found objects
                 if let objects = objects as [PFObject]! {
                     for object in objects {
-                        let name = object.valueForKey("roomName") as! String
-                        if !serverLink.Rooms.contains(name) {
-                            serverLink.Rooms.append(name)
-                        }
+                        let roomID:String = object.valueForKey("roomID") as! String
+                        let roomName:String = object.valueForKey("roomName") as! String
+                        serverLink.Rooms.append((roomName,roomID))
                     }
                 }
             } else {
@@ -198,23 +196,6 @@ class RoomFinder {
             completion(result: musicList)
         }
     }
-    
-    func newRoomCheck(){
-        let test = songsVoted.indexForKey(userDefaults.objectForKey("roomID") as! String)
-        if(test == nil){
-            self.newRoom = true
-            self.songsVoted[userDefaults.objectForKey("roomID") as! String] = []
-            
-        }
-        else{
-            self.newRoom = false
-        }
-    }
-    
-    
-    
-    
-    
     
     func removeRoom(roomName:String) {
         //no clue yet how to do this.

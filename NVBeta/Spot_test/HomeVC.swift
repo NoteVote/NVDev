@@ -11,8 +11,7 @@ import Parse
 
 class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITableViewDelegate{
     
-    var roomsNearby:[String] = []
-    var currentRoomID:String = ""
+    var roomsNearby:[(String,String)] = []
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -64,20 +63,12 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     
     /*CurrentPlayer Selected and moves to next page*/
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let currentRoom = roomsNearby[indexPath.row]
+        userDefaults.setObject(self.roomsNearby[indexPath.row].1, forKey: "roomID")
+        //takes name of current room and saves it.
+        userDefaults.setObject(self.roomsNearby[indexPath.row].0, forKey: "currentRoom")
+        userDefaults.synchronize()
+        self.performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
         
-        //BUG need to use roomID only not currentRoom //
-        serverLink.roomID(currentRoom){
-            (result: String) in
-            userDefaults.setObject(result, forKey: "roomID")
-            
-            //takes name of current room and saves it.
-            userDefaults.setObject(currentRoom, forKey: "currentRoom")
-            userDefaults.synchronize()
-            //Will see if the room has been entered before or if it is new.
-            serverLink.newRoomCheck()
-            self.performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
-        }
     }
     
     /*Creating tableview cells*/
@@ -89,7 +80,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         cell.selectedBackgroundView = customColor
         
         cell.textLabel!.textColor = UIColor(red: 125/255, green: 205/255, blue: 3/255, alpha: 1.0)
-        cell.textLabel?.text = roomsNearby[indexPath.row]
+        cell.textLabel?.text = roomsNearby[indexPath.row].0
         cell.textLabel?.font = UIFont.systemFontOfSize(30)
         //TODO: set cell atributes.
         return cell
@@ -103,7 +94,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
 
         //Handles result from completion handler.
         serverLink.findRooms(){
-            (result: [String]) in
+            (result: [(String,String)]) in
             self.roomsNearby = result
             self.tableView.reloadData()
         }
@@ -111,9 +102,9 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Checking to see if roomsNearby has all items in songsVoted keys
         self.sideMenuController()?.sideMenu?.delegate = self;
-        let sessionHandler = SessionHandler()
-        let session = sessionHandler.getSession()
     }
     
     override func didReceiveMemoryWarning() {

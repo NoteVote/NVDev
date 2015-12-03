@@ -76,13 +76,12 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             cell.artistLabel.text! = serverLink.musicList[indexPath.row][2] as! String
             let voteNum:String = String(serverLink.musicList[indexPath.row][3] as! Int)
             cell.voteButton.setTitle(voteNum, forState: UIControlState.Normal)
+            //initializing cells to voted state or unvoted state.
             if(serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]!.contains(cell.songURI)){
                 cell.alreadyVoted()
-                print("alreadyVoted")
             }
             else{
                 cell.notalreadyVoted()
-                print("not votd")
             }
         }
         
