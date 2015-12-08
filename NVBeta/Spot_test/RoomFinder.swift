@@ -88,6 +88,10 @@ class RoomFinder {
         }
     }
     func pop() ->String {
+        let roomID = userDefaults.objectForKey("roomID") as! String
+        
+        syncQueueForRoomID(roomID)
+        
         var highest:(Int,Int) = (0,0)
         for i in 0...musicList.count-1 {
             let voteCount = musicList[i][3] as! Int
@@ -97,19 +101,30 @@ class RoomFinder {
             }
         }
         let uri = musicList[highest.1][0] as! String
-        update(highest.1)
+        print("sync worked")
+        self.musicList.removeAtIndex(highest.1)
+        saveRoomQueue(roomID)
         return uri
     }
     
-    func update(index:Int){
-        self.queueForRoomID(userDefaults.objectForKey("roomID") as! String){
-            (result: [[AnyObject]]) in
-            self.musicList = result
-            self.musicList.removeAtIndex(index)
-            self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
-        }
-    }
     
+    func syncQueueForRoomID(roomID:String){
+        let query = PFQuery(className: "RoomObjects")
+        query.whereKey("roomID", equalTo: roomID)
+        
+        do {
+            let objects = try query.findObjects()
+            let room = objects[0]
+            let queue = room.objectForKey("queue")
+            if queue != nil {
+                serverLink.musicList = queue as! [[AnyObject]]
+            }
+        } catch {
+            print("there was an error updating music list (sync)")
+        }
+
+    }
+
     
     func saveRoomQueue(roomID:String) {
         let query = PFQuery(className: "RoomObjects")

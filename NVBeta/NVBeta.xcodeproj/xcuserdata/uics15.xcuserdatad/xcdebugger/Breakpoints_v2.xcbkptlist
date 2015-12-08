@@ -109,7 +109,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
             endingLineNumber = "162"
-            landmarkName = "startSession()"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -125,8 +125,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "HostRoomVC"
-            landmarkType = "3">
+            landmarkName = "audioStreaming(_:didChangeToTrack:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -141,8 +141,69 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "HostRoomVC"
-            landmarkType = "3">
+            landmarkName = "playPausePressed(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Spot_test/RoomFinder.swift"
+            timestampString = "471294110.438338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NVBeta.RoomFinder.__deallocating_deinit"
+                  moduleName = "NVBeta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uics15/Desktop/NVDev/NVBeta/Spot_test/RoomFinder.swift"
+                  timestampString = "471293490.202524"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NVBeta.RoomFinder.deinit"
+                  moduleName = "NVBeta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uics15/Desktop/NVDev/NVBeta/Spot_test/RoomFinder.swift"
+                  timestampString = "471293490.203952"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NVBeta.RoomFinder.init (NVBeta.RoomFinder.Type)() -&gt; NVBeta.RoomFinder"
+                  moduleName = "NVBeta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uics15/Desktop/NVDev/NVBeta/Spot_test/RoomFinder.swift"
+                  timestampString = "471293490.204118"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
