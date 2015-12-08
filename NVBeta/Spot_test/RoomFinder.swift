@@ -234,8 +234,16 @@ class RoomFinder {
         }
     }
     
-    func removeRoom(roomName:String) {
-        //no clue yet how to do this.
+    func deleteRoom(roomID: String) {
+        let roomID = userDefaults.objectForKey("roomID") as! String
+        let query = PFQuery(className: "RoomObjects")
+        query.whereKey("roomID", equalTo: roomID)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            for object in objects! {
+                object.deleteEventually()
+            }
+        }
     }
 }
 
