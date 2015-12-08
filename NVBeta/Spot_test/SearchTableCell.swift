@@ -22,7 +22,10 @@ class SearchTableCell: UITableViewCell {
         } else {
             QueueButton.setBackgroundImage(UIImage(named: "voted"), forState: UIControlState.Normal)
             queued = !queued
-            serverLink.addSongToQueue(self.songURI)
+            searchHandler.getURIwithPartial(songURI){
+                (result: String) in
+                serverLink.addSongToQueue([result,self.songTitle.text!,self.artistLabel.text!,1])
+            }
         }
     }
     

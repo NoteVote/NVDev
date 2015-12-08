@@ -15,7 +15,7 @@ class RoomFinder {
     var songsVoted:[String:[String]] = [:]
     var musicList:[[AnyObject]] = []
     var musicOptions:[[AnyObject]] = []
-    
+    var searchList:[SPTPartialTrack] = []
     
     //Testing defaults
     
@@ -164,46 +164,24 @@ class RoomFinder {
         }
     }
     
-    func getSongOptions(completion: (result: String) -> Void){
-        let query = PFQuery(className: "SongLibrary")
-        query.whereKey("trackTitle", notEqualTo: "")
-        self.musicOptions = []
-        query.findObjectsInBackgroundWithBlock{
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                for object in objects! {
-                    var song:[AnyObject] = []
-                    var inList = false
-                    let testUri = object.objectForKey("uri") as! String
-                    for Track in self.musicList {
-                        if(Track[0] as! String == testUri){
-                            inList = true
-                        }
-                    }
-                    if(!inList){
-                        song.append(object.objectForKey("uri") as! String)
-                        song.append(object.objectForKey("trackTitle") as! String)
-                        song.append(object.objectForKey("trackArtist") as! String)
-                        song.append(0)
-                        self.musicOptions.append(song)
-                    }
-                }
-            } else {
-                print("song options missing")
-            }
-            completion(result: "Done")
+    func setMusicOptions(){
+        var Song:[AnyObject] = ["","","",0]
+        //var artistName:String!
+        //var suportArtists:[String] = []
+        for track in self.searchList {
+            Song[0] = String(track.uri)
+            Song[1] = track.name
+            let str = String(track.artists.first)
+            Song[2] = str.substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(42), end: str.endIndex.advancedBy(-40)))
+            self.musicOptions.append(Song)
         }
+        print(self.musicOptions)
     }
     
-    func addSongToQueue(songURI:String){
-        for song in self.musicOptions{
-            if( songURI == (song[0] as! String)){
-                self.musicList.append(song)
-                self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
-                
-                return
-            }
-        }
+    func addSongToQueue(song:[AnyObject]){
+        self.musicList.append(song)
+        self.songsVoted[userDefaults.objectForKey("roomID") as! String]?.append(song[0] as! String)
+        self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
     }
     
     func songsVotedCheck(){

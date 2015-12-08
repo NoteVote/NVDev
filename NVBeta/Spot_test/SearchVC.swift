@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ENSideMenuDelegate {
+class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ENSideMenuDelegate, UITextFieldDelegate {
     
     var preView:String?
     
@@ -34,6 +34,8 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
         print("sideMenuDidOpen")
     }
 
+    @IBOutlet weak var searchField: UITextField!
+    
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -47,7 +49,16 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
     }
     
     @IBAction func SearchButtonPressed(sender: UIBarButtonItem) {
-    
+        
+        if(searchField.text! != ""){
+            searchHandler.Search(searchField.text!){
+                (result: String) in
+                serverLink.setMusicOptions()
+                print(serverLink.searchList)
+                self.tableView.reloadData()
+            }
+        }
+        searchField.resignFirstResponder()
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -82,10 +93,5 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-            //for Alpha version
-        serverLink.getSongOptions() {
-            (result: String) in print(result)
-            self.tableView.reloadData()
-        }
     }
 }

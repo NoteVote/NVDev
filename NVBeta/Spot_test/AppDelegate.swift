@@ -12,6 +12,7 @@ import Bolts
 
 let userDefaults = NSUserDefaults.standardUserDefaults()
 let serverLink = RoomFinder()
+let searchHandler = SearchHandler()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
