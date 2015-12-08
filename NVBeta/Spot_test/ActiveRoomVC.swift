@@ -111,6 +111,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         serverLink.musicList = []
+        serverLink.songsVotedCheck()
         navBarTitle.text! = userDefaults.objectForKey("currentRoom") as! String
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorColor = UIColor.lightGrayColor()

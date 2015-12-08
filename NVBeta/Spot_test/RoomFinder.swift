@@ -12,7 +12,7 @@ import Parse
 class RoomFinder {
     
     private var Rooms:[(String,String)] = []
-    var songsVoted = [String:[String]]()
+    var songsVoted:[String:[String]] = [:]
     var musicList:[[AnyObject]] = []
     var musicOptions:[[AnyObject]] = []
     
@@ -67,6 +67,7 @@ class RoomFinder {
         }
         
     }
+    
     /*query used to find roomID from roomName*/
     func roomID(roomName:String, completion: (result: String) -> Void){
         var roomID:String = ""
@@ -190,6 +191,11 @@ class RoomFinder {
         }
     }
     
+    func songsVotedCheck(){
+        if(!songsVoted.keys.contains(userDefaults.objectForKey("roomID") as! String)){
+            songsVoted[(userDefaults.objectForKey("roomID") as! String)] = []
+        }
+    }
     
     
     func queueForRoomID(roomID:String, completion: (result: [[AnyObject]]) -> Void){
@@ -216,6 +222,5 @@ class RoomFinder {
     func removeRoom(roomName:String) {
         //no clue yet how to do this.
     }
-
 }
 
