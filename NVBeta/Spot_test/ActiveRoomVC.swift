@@ -13,6 +13,8 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
 
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl:UIRefreshControl!
+
     
     // MARK: - ENSideMenu Delegate
     func sideMenuWillOpen() {
@@ -86,10 +88,25 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
+    func refresh(sender:AnyObject)
+    {
+        serverLink.queueForRoomID(userDefaults.objectForKey("roomID") as! String){
+            (result: [[AnyObject]]) in
+            serverLink.musicList = result
+            PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"active"], block: nil)
+            self.tableView.reloadData()
+        }
+        self.refreshControl.endRefreshing()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuController()?.sideMenu?.delegate = self;
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
     }
 
   
