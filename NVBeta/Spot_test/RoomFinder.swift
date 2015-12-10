@@ -15,6 +15,7 @@ class RoomFinder {
     var albumArt:UIImage?
     var trackTitle:String?
     var artistName:String?
+    var currentURI:String?
     
     private var Rooms:[(String,String)] = []
     var songsVoted:[String:[String]] = [:]

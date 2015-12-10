@@ -92,6 +92,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
                 let currentTrack = serverLink.pop()
+                serverLink.currentURI = currentTrack
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -109,13 +110,14 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     
     //fires whenever the track changes
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didChangeToTrack trackMetadata: [NSObject : AnyObject]!) {
-        if trackMetadata == nil {
+        if (trackMetadata == nil || trackMetadata["SPTAudioStreamingMetadataTrackURI"] as! String == serverLink.currentURI){
             
             //TODO: SELECT SONGS ON VOTES, SOMEHOW IMPLEMENT PLAYLIST INTEGRATION
-            serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
+           // serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
             PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
             if (!serverLink.musicList.isEmpty) {
                 let currentTrack = serverLink.pop()
+                serverLink.currentURI = currentTrack
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
