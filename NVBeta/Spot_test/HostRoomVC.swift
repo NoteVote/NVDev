@@ -126,6 +126,8 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             let albumURI = trackMetadata["SPTAudioStreamingMetadataAlbumURI"] as! String
             trackTitle.text! = trackMetadata["SPTAudioStreamingMetadataTrackName"] as! String
             trackArtist.text! = trackMetadata["SPTAudioStreamingMetadataArtistName"] as! String
+            serverLink.trackTitle = trackTitle.text!
+            serverLink.artistName = trackArtist.text!
             
             SPTAlbum.albumWithURI(NSURL(string: albumURI), session: nil) { (error:NSError!, albumObj:AnyObject!) -> Void in
                 let album = albumObj as! SPTAlbum
@@ -147,6 +149,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.albumImage.image = coverImage
+                            serverLink.albumArt = coverImage
                         })
                     })
                 }
@@ -165,6 +168,11 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         super.viewWillAppear(true)
         let currentRoom = userDefaults.objectForKey("currentRoom") as! String
         self.title = currentRoom
+        if(serverLink.artistName != nil){
+            self.trackArtist.text = serverLink.artistName
+            self.trackTitle.text = serverLink.trackTitle
+            self.albumImage.image = serverLink.albumArt
+        }
 //      startSession()
     }
     

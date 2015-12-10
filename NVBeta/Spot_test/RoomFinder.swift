@@ -11,6 +11,11 @@ import Parse
 
 class RoomFinder {
     
+    //Needed for HostVC Refresh
+    var albumArt:UIImage?
+    var trackTitle:String?
+    var artistName:String?
+    
     private var Rooms:[(String,String)] = []
     var songsVoted:[String:[String]] = [:]
     var musicList:[[AnyObject]] = []
@@ -164,7 +169,17 @@ class RoomFinder {
             Song[0] = String(track.uri)
             Song[1] = track.name
             let str = String(track.artists.first)
-            Song[2] = str.substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(42), end: str.endIndex.advancedBy(-40)))
+            
+            //Building artist name with parsing.
+            let strList = str.componentsSeparatedByString(" ")
+            var artistName:String = strList[2]
+            if(strList.count-1 > 3){
+                for i in 3...strList.count-2{
+                    artistName += " " + strList[i]
+                }
+            }
+
+            Song[2] = artistName
             self.musicOptions.append(Song)
         }
         print(self.musicOptions)
