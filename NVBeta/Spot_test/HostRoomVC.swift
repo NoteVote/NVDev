@@ -88,6 +88,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             }
             
             serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
+            PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
             if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
                 let currentTrack = serverLink.pop()
@@ -112,6 +113,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             
             //TODO: SELECT SONGS ON VOTES, SOMEHOW IMPLEMENT PLAYLIST INTEGRATION
             serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
+            PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
             if (!serverLink.musicList.isEmpty) {
                 let currentTrack = serverLink.pop()
                 print(currentTrack)

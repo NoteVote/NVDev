@@ -111,7 +111,6 @@ class RoomFinder {
             let queue = room.objectForKey("queue")
             if queue != nil {
                 serverLink.musicList = queue as! [[AnyObject]]
-                PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
             }
         } catch {
             print("there was an error updating music list (sync)")
@@ -187,9 +186,12 @@ class RoomFinder {
 	
 	//TODO: ENSURE THIS DOES NOT OVERWRITE QUEUE
     func addSongToQueue(song:[AnyObject]){
+        let roomID = userDefaults.objectForKey("roomID") as! String
+        syncQueueForRoomID(roomID)
+        PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"search"], block: nil)
         self.musicList.append(song)
-        self.songsVoted[userDefaults.objectForKey("roomID") as! String]?.append(song[0] as! String)
-        self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+        self.songsVoted[roomID]?.append(song[0] as! String)
+        self.saveRoomQueue(roomID)
 		PFAnalytics.trackEventInBackground("savequeue", dimensions: ["where":"search"], block: nil)
     }
     
