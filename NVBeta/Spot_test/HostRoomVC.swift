@@ -29,7 +29,9 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     // MARK: - ENSideMenu Delegate
     func sideMenuWillOpen() {
         print("sideMenuWillOpen")
-    }
+		let menu = self.sideMenuController()?.sideMenu?.menuViewController as! MyMenuTableViewController
+		menu.options("Host")
+	}
     func sideMenuWillClose() {
         print("sideMenuWillClose")
     }
@@ -169,6 +171,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         let view:String = "Host"
         let destinationVC = segue.destinationViewController as! SearchVC
         destinationVC.preView = view
+		hideSideMenuView()
     }
     
 

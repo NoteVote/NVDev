@@ -21,6 +21,8 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     // MARK: - ENSideMenu Delegate
     func sideMenuWillOpen() {
         print("sideMenuWillOpen")
+		let menu = self.sideMenuController()?.sideMenu?.menuViewController as! MyMenuTableViewController
+		menu.options("Home")
     }
     
     func sideMenuWillClose() {
@@ -111,4 +113,8 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		hideSideMenuView()
+	}
 }

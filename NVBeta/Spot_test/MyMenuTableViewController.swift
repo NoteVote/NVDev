@@ -10,9 +10,18 @@ import UIKit
 
 class MyMenuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
-    let menuOptions:[String] = ["go to host"]
+    var menuOptions:[String] = ["Log out"]
     
-    
+	
+	func options(view: String){
+		if view == "Host" {
+			self.menuOptions = ["Close Room"]
+		} else {
+			self.menuOptions = ["Log out"]
+		}
+		self.tableView.reloadData()
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +61,7 @@ class MyMenuTableViewController: UITableViewController {
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CELL")
             cell!.backgroundColor = UIColor.clearColor()
-            cell!.textLabel?.textColor = UIColor.darkGrayColor()
+            cell!.textLabel?.textColor = UIColor.greenColor()
             let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
             selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
             cell!.selectedBackgroundView = selectedBackgroundView
@@ -72,7 +81,7 @@ class MyMenuTableViewController: UITableViewController {
         print("did select row: \(indexPath.row)")
         
         if (indexPath.row == selectedMenuItem) {
-            return
+			//return
         }
         
         selectedMenuItem = indexPath.row
@@ -82,22 +91,28 @@ class MyMenuTableViewController: UITableViewController {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController1")
+			if menuOptions[indexPath.row] == "Close Room" {
+				destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Home")
+				serverLink.deleteRoom(userDefaults.objectForKey("roomID") as! String)
+				
+			} else { //if equal to "Log out"
+				destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Login")
+				userDefaults.removeObjectForKey("session")
+			}
             break
-        case 1:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController2")
-            break
-        case 2:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController3")
-            break
-        default:
+		default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4") 
             break
         }
-        //sideMenuController()?.setContentViewController(destViewController)
+		
+		sideMenuController()?.setContentViewController(destViewController)
     }
     
 
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		print("segue")
+		segue.destinationViewController
+	}
     /*
     // MARK: - Navigation
 
