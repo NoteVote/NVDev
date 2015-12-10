@@ -94,6 +94,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             (result: [[AnyObject]]) in
             serverLink.musicList = result
             PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"active"], block: nil)
+            serverLink.SortMusicList()
             self.tableView.reloadData()
         }
         self.refreshControl.endRefreshing()
@@ -136,6 +137,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             (result: [[AnyObject]]) in
             serverLink.musicList = result
 			PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"active"], block: nil)
+            serverLink.SortMusicList()
             self.tableView.reloadData()
         }
         

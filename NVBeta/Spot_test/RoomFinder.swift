@@ -148,21 +148,26 @@ class RoomFinder {
     }
     
     func SortMusicList(){
-        var temp:[[AnyObject]] = []
-        temp.append(musicList[0])
-        for i in 1...self.musicList.count-1 {
-            var inserted = false
-            for j in 0...temp.count-1 {
-                if(musicList[i][3] as! Int > temp[j][3] as! Int){
-                    temp.insert(musicList[i], atIndex: j)
-                    inserted = true
+        self.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
+        if(!musicList.isEmpty){
+            var temp:[[AnyObject]] = []
+            temp.append(self.musicList[0])
+            if(self.musicList.count > 1){
+                for i in 1...self.musicList.count-1 {
+                    var inserted = false
+                    for j in 0...temp.count-1 {
+                        if(musicList[i][3] as! Int > temp[j][3] as! Int){
+                            temp.insert(musicList[i], atIndex: j)
+                            inserted = true
+                        }
+                    }
+                    if(!inserted){
+                        temp.append(musicList[i])
+                    }
                 }
             }
-            if(!inserted){
-                temp.append(musicList[i])
-            }
+            self.musicList = temp
         }
-        self.musicList = temp
     }
     
     
