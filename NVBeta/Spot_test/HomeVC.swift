@@ -12,6 +12,7 @@ import Parse
 class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITableViewDelegate{
     
     var roomsNearby:[(String,String)] = []
+    var refreshControl:UIRefreshControl!
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -89,6 +90,15 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         return cell
     }
     
+    func refresh(sender:AnyObject)
+    {
+        serverLink.findRooms(){
+            (result: [(String,String)]) in
+            self.roomsNearby = result
+            self.tableView.reloadData()
+        }
+        self.refreshControl.endRefreshing()
+    }
     
     // _____ Default View Controller Methods _____
     
@@ -108,6 +118,11 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         
         //Checking to see if roomsNearby has all items in songsVoted keys
         self.sideMenuController()?.sideMenu?.delegate = self;
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
     }
     
     override func didReceiveMemoryWarning() {
