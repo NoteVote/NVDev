@@ -30,7 +30,8 @@ class RoomFinder {
         query.whereKey("roomID", notEqualTo: "0")
         query.findObjectsInBackgroundWithBlock{
             (objects: [PFObject]?, error: NSError?) -> Void in
-            
+			
+			PFAnalytics.trackEventInBackground("getrooms", block: nil)
             if error == nil {
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) scores.")
@@ -58,6 +59,8 @@ class RoomFinder {
         RoomObject["roomPrivate"] = priv
         RoomObject.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
+			
+			PFAnalytics.trackEventInBackground("createroom", block: nil)
             if (success) {
                 // The object has been saved.
                 
@@ -75,8 +78,9 @@ class RoomFinder {
         query.whereKey("roomName", equalTo: roomName)
         query.findObjectsInBackgroundWithBlock{
             (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
+			
+			PFAnalytics.trackEventInBackground("getroomid", block: nil)
+			if error == nil {
                 let room = objects![0]
                 roomID = room.objectForKey("roomID") as! String
             } else {
@@ -87,12 +91,14 @@ class RoomFinder {
             completion(result: roomID)
         }
     }
+	
     func pop() ->String {
         let roomID = userDefaults.objectForKey("roomID") as! String
         
         syncQueueForRoomID(roomID)
-        
-        var highest:(Int,Int) = (0,0)
+        PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
+		
+		var highest:(Int,Int) = (0,0)
         for i in 0...musicList.count-1 {
             let voteCount = musicList[i][3] as! Int
             if(voteCount > highest.0){
@@ -104,11 +110,13 @@ class RoomFinder {
         print("sync worked")
         self.musicList.removeAtIndex(highest.1)
         saveRoomQueue(roomID)
+		PFAnalytics.trackEventInBackground("savequeue", dimensions: ["where":"host"], block: nil)
         return uri
     }
     
     
     func syncQueueForRoomID(roomID:String){
+		
         let query = PFQuery(className: "RoomObjects")
         query.whereKey("roomID", equalTo: roomID)
         
@@ -143,6 +151,7 @@ class RoomFinder {
     }
     
     func incrementSongUp(songURI: String) {
+		PFAnalytics.trackEventInBackground("vote", dimensions: ["type":"up"], block: nil)
         for i in 0...serverLink.musicList.count-1 {
             if songURI == serverLink.musicList[i][0] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) + 1
@@ -153,6 +162,7 @@ class RoomFinder {
     }
     
     func incrementSongDown(songURI: String) {
+		PFAnalytics.trackEventInBackground("vote", dimensions: ["type":"down"], block: nil)
         for i in 0...musicList.count-1 {
             if songURI == musicList[i][0] as! String {
                 serverLink.musicList[i][3] = (serverLink.musicList[i][3] as! Int) - 1
@@ -177,11 +187,13 @@ class RoomFinder {
         }
         print(self.musicOptions)
     }
-    
+	
+	//TODO: ENSURE THIS DOES NOT OVERWRITE QUEUE
     func addSongToQueue(song:[AnyObject]){
         self.musicList.append(song)
         self.songsVoted[userDefaults.objectForKey("roomID") as! String]?.append(song[0] as! String)
         self.saveRoomQueue(userDefaults.objectForKey("roomID") as! String)
+		PFAnalytics.trackEventInBackground("savequeue", dimensions: ["where":"search"], block: nil)
     }
     
     func songsVotedCheck(){
@@ -218,6 +230,8 @@ class RoomFinder {
         query.whereKey("roomID", equalTo: roomID)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
+			
+			PFAnalytics.trackEventInBackground("deleteroom", block: nil)
             for object in objects! {
                 object.deleteEventually()
             }

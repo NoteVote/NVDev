@@ -118,6 +118,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         serverLink.queueForRoomID(userDefaults.objectForKey("roomID") as! String){
             (result: [[AnyObject]]) in
             serverLink.musicList = result
+			PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"active"], block: nil)
             self.tableView.reloadData()
         }
         

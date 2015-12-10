@@ -25,6 +25,7 @@ class SearchTableCell: UITableViewCell {
             searchHandler.getURIwithPartial(songURI){
                 (result: String) in
                 serverLink.addSongToQueue([result,self.songTitle.text!,self.artistLabel.text!,1])
+				
             }
         }
     }

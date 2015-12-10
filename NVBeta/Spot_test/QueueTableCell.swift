@@ -5,6 +5,7 @@
 //  Created by uics15 on 11/3/15.
 //  Copyright © 2015 uiowa. All rights reserved.
 //
+import Parse
 
 class QueueTableCell: UITableViewCell {
     
@@ -30,6 +31,7 @@ class QueueTableCell: UITableViewCell {
         
         let roomID = userDefaults.objectForKey("roomID") as! String
         serverLink.saveRoomQueue(roomID)
+		PFAnalytics.trackEventInBackground("savequeue", dimensions: ["where":"vote"], block: nil)
     }
     
     func alreadyVoted(){
