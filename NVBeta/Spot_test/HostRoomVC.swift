@@ -113,7 +113,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         if (trackMetadata == nil || trackMetadata["SPTAudioStreamingMetadataTrackURI"] as! String == serverLink.currentURI){
             
             //TODO: SELECT SONGS ON VOTES, SOMEHOW IMPLEMENT PLAYLIST INTEGRATION
-           // serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
+            serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
             PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
             if (!serverLink.musicList.isEmpty) {
                 let currentTrack = serverLink.pop()
