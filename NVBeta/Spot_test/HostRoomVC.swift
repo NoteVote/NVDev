@@ -87,6 +87,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
                 return
             }
             
+            serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
             if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
                 let currentTrack = serverLink.pop()
@@ -110,6 +111,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         if trackMetadata == nil {
             
             //TODO: SELECT SONGS ON VOTES, SOMEHOW IMPLEMENT PLAYLIST INTEGRATION
+            serverLink.syncQueueForRoomID(userDefaults.objectForKey("roomID") as! String)
             if (!serverLink.musicList.isEmpty) {
                 let currentTrack = serverLink.pop()
                 print(currentTrack)

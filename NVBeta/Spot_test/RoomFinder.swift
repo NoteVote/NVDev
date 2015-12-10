@@ -75,8 +75,8 @@ class RoomFinder {
     func pop() ->String {
         let roomID = userDefaults.objectForKey("roomID") as! String
         
-        syncQueueForRoomID(roomID)
-        PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
+//        syncQueueForRoomID(roomID)
+//        PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
 		
 		var highest:(Int,Int) = (0,0)
         for i in 0...musicList.count-1 {
@@ -106,6 +106,7 @@ class RoomFinder {
             let queue = room.objectForKey("queue")
             if queue != nil {
                 serverLink.musicList = queue as! [[AnyObject]]
+                PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
             }
         } catch {
             print("there was an error updating music list (sync)")
