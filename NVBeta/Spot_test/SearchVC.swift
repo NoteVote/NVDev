@@ -92,8 +92,16 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
         let customColor = UIView()
         customColor.backgroundColor = UIColor.clearColor()
         cell.selectedBackgroundView = customColor
-        
+        cell.QueueButton.setBackgroundImage(UIImage(named:""), forState: UIControlState.Normal)
         cell.songURI = serverLink.musicOptions[indexPath.row][0] as! String
+        if(serverLink.songsVoted.count > 0){
+            if(serverLink.songsVoted[userDefaults.objectForKey("roomID") as! String]!.contains(cell.songURI)){
+                cell.QueueButton.setBackgroundImage(UIImage(named:"voted"), forState: UIControlState.Normal)
+            }
+            else{
+                cell.QueueButton.setBackgroundImage(UIImage(named:"unvoted"), forState: UIControlState.Normal)
+            }
+        }
         cell.songTitle.text! = serverLink.musicOptions[indexPath.row][1] as! String
         cell.artistLabel.text! = serverLink.musicOptions[indexPath.row][2] as! String
         return cell
