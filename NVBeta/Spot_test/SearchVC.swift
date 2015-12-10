@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ENSideMenuDelegate, UITextFieldDelegate {
-    
+class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ENSideMenuDelegate, UISearchBarDelegate {
+    lazy   var searchBars:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 300, 18))
     var preView:String?
     
     // MARK: - ENSideMenu Delegate
@@ -33,8 +33,6 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
     func sideMenuDidOpen() {
         print("sideMenuDidOpen")
     }
-
-    @IBOutlet weak var searchField: UITextField!
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -47,20 +45,34 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
             performSegueWithIdentifier("Search_ActiveRoom", sender: nil)
         }
     }
-    
-    @IBAction func SearchButtonPressed(sender: UIBarButtonItem) {
-        
-        if(searchField.text! != ""){
-            searchHandler.Search(searchField.text!){
-                (result: String) in
-                serverLink.setMusicOptions()
-                print(serverLink.searchList)
-                self.tableView.reloadData()
-            }
-        }
-        searchField.resignFirstResponder()
-    }
+	
+	//MARK: SearchBarDelegate
+	func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+		
+	}
+	
+	func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+	}
+	
+	func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+	}
+	
+	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+		if(searchBar.text! != ""){
+			searchHandler.Search(searchBar.text!){
+				(result: String) in
+				serverLink.setMusicOptions()
 
+				self.tableView.reloadData()
+			}
+		}
+		searchBar.resignFirstResponder()
+	}
+	
+	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+	}
+
+	//MARK: TableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
@@ -89,6 +101,10 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuController()?.sideMenu?.delegate = self;
+		let rightNavBarButton = UIBarButtonItem(customView: searchBars)
+		self.navigationItem.rightBarButtonItem = rightNavBarButton
+		searchBars.placeholder = "Enter song name"
+		searchBars.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {

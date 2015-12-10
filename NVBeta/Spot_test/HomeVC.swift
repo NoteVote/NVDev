@@ -23,6 +23,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         print("sideMenuWillOpen")
 		let menu = self.sideMenuController()?.sideMenu?.menuViewController as! MyMenuTableViewController
 		menu.options("Home")
+		
     }
     
     func sideMenuWillClose() {

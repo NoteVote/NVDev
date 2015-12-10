@@ -12,7 +12,6 @@ import Parse
 class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMenuDelegate {
     
     @IBOutlet weak var albumImage: UIImageView!
-    @IBOutlet weak var navBarTitle: UILabel!
     @IBOutlet weak var trackTitle: UILabel!
     @IBOutlet weak var trackArtist: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
@@ -163,7 +162,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         let currentRoom = userDefaults.objectForKey("currentRoom") as! String
-        navBarTitle.text = currentRoom
+        self.title = currentRoom
 //      startSession()
     }
     

@@ -11,7 +11,7 @@ import Parse
 
 class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ENSideMenuDelegate {
 
-    @IBOutlet weak var navBarTitle: UILabel!
+
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - ENSideMenu Delegate
@@ -112,7 +112,7 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewWillAppear(true)
         serverLink.musicList = []
         serverLink.songsVotedCheck()
-        navBarTitle.text! = userDefaults.objectForKey("currentRoom") as! String
+        self.title = userDefaults.objectForKey("currentRoom") as! String
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorColor = UIColor.lightGrayColor()
         serverLink.queueForRoomID(userDefaults.objectForKey("roomID") as! String){
