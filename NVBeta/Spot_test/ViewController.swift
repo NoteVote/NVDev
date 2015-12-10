@@ -90,6 +90,14 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
         }
     
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
 
     override func viewDidAppear(animated: Bool) {
         if (currentSession != nil) {

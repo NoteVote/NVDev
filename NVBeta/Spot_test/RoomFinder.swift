@@ -71,26 +71,6 @@ class RoomFinder {
         
     }
     
-    /*query used to find roomID from roomName*/
-    func roomID(roomName:String, completion: (result: String) -> Void){
-        var roomID:String = ""
-        let query = PFQuery(className: "RoomObjects")
-        query.whereKey("roomName", equalTo: roomName)
-        query.findObjectsInBackgroundWithBlock{
-            (objects: [PFObject]?, error: NSError?) -> Void in
-			
-			PFAnalytics.trackEventInBackground("getroomid", block: nil)
-			if error == nil {
-                let room = objects![0]
-                roomID = room.objectForKey("roomID") as! String
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-        
-            completion(result: roomID)
-        }
-    }
 	
     func pop() ->String {
         let roomID = userDefaults.objectForKey("roomID") as! String
@@ -175,6 +155,7 @@ class RoomFinder {
     }
     
     func setMusicOptions(){
+        self.musicOptions = []
         var Song:[AnyObject] = ["","","",0]
         //var artistName:String!
         //var suportArtists:[String] = []
@@ -233,7 +214,7 @@ class RoomFinder {
 			
 			PFAnalytics.trackEventInBackground("deleteroom", block: nil)
             for object in objects! {
-                object.deleteEventually()
+                object.deleteInBackground()
             }
         }
     }

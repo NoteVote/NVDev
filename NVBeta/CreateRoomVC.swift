@@ -44,6 +44,7 @@ class CreateRoomVC: UIViewController, ENSideMenuDelegate {
     
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
         print(roomName.text!)
+        serverLink.musicList = []
         serverLink.addRoom(roomName.text!, id: session!.canonicalUsername, priv: false)
         userDefaults.setObject(roomName.text!, forKey: "currentRoom")
         userDefaults.setObject(session!.canonicalUsername, forKey: "roomID")

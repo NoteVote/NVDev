@@ -15,6 +15,9 @@ class SearchHandler {
             var trackListItems:[SPTPartialTrack] = []
             let trackListPage = result as! SPTListPage
             var trackListPageItems = trackListPage.items
+            if(trackListPage.items == nil){
+                return
+            }
             if(trackListPage.items.count < 20){
                 let count = trackListPageItems.count
                 while(trackListItems.count < count){

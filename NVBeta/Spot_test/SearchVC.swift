@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ENSideMenuDelegate, UISearchBarDelegate {
-    lazy   var searchBars:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 300, 18))
+    lazy   var searchBars:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, 250, 18))
     var preView:String?
     
     // MARK: - ENSideMenu Delegate
@@ -38,6 +38,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func BackButtonPressed(sender: UIBarButtonItem) {
+        serverLink.musicOptions = []
         if(preView == "Host"){
             performSegueWithIdentifier("Search_Host", sender: nil)
         }
@@ -48,7 +49,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
 	
 	//MARK: SearchBarDelegate
 	func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-		
+        searchBars.text! = ""
 	}
 	
 	func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -96,6 +97,16 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
         cell.songTitle.text! = serverLink.musicOptions[indexPath.row][1] as! String
         cell.artistLabel.text! = serverLink.musicOptions[indexPath.row][2] as! String
         return cell
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        self.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.searchBars.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
 
     override func viewDidLoad() {

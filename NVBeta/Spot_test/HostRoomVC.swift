@@ -57,7 +57,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
                     return
                 }
             })
-            playPauseButton.setTitle("Play", forState: UIControlState.Normal)
+            playPauseButton.setBackgroundImage(UIImage(named:"PlayButton"), forState: UIControlState.Normal)
             
         } else {
             
@@ -67,7 +67,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
                     return
                 }
             })
-            playPauseButton.setTitle("Pause", forState: UIControlState.Normal)
+            playPauseButton.setBackgroundImage(UIImage(named: "PauseButton"), forState: UIControlState.Normal)
         }
     }
     
