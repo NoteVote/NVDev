@@ -92,7 +92,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             if !serverLink.musicList.isEmpty {
                 //TODO dynamic track URI
                 let currentTrack = serverLink.pop()
-                serverLink.currentURI = currentTrack
+				//serverLink.currentURI = currentTrack
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -117,7 +117,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"host"], block: nil)
             if (!serverLink.musicList.isEmpty) {
                 let currentTrack = serverLink.pop()
-                serverLink.currentURI = currentTrack
+				//serverLink.currentURI = currentTrack
                 print(currentTrack)
                 self.player?.playURI(NSURL(string: currentTrack), callback: { (error:NSError!) -> Void in
                     if error != nil {
@@ -130,6 +130,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             let albumURI = trackMetadata["SPTAudioStreamingMetadataAlbumURI"] as! String
             trackTitle.text! = trackMetadata["SPTAudioStreamingMetadataTrackName"] as! String
             trackArtist.text! = trackMetadata["SPTAudioStreamingMetadataArtistName"] as! String
+			serverLink.currentURI = trackMetadata["SPTAudioStreamingMetadataTrackURI"] as! String
             serverLink.trackTitle = trackTitle.text!
             serverLink.artistName = trackArtist.text!
             
