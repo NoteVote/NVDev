@@ -66,14 +66,14 @@
 		9118BF881BBDE80700893CF8 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		9118BF891BBDE80700893CF8 /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
 		9118BF8A1BBDE80700893CF8 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
-		918A22BB1BB1BAFB00CE76AF /* NVBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		918A22BB1BB1BAFB00CE76AF /* NoteVote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteVote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A22BE1BB1BAFB00CE76AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		918A22C01BB1BAFB00CE76AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		918A22C31BB1BAFB00CE76AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		918A22C51BB1BAFB00CE76AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		918A22C81BB1BAFB00CE76AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		918A22CA1BB1BAFB00CE76AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		918A22CF1BB1BAFC00CE76AF /* NVBeta.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVBeta.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		918A22CF1BB1BAFC00CE76AF /* NoteVote.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteVote.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A22D31BB1BAFC00CE76AF /* Spot_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot_testTests.swift; sourceTree = "<group>"; };
 		918A22D51BB1BAFC00CE76AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		918A22DF1BB1BB8200CE76AF /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 		918A22BC1BB1BAFB00CE76AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				918A22BB1BB1BAFB00CE76AF /* NVBeta.app */,
-				918A22CF1BB1BAFC00CE76AF /* NVBeta.xctest */,
+				918A22BB1BB1BAFB00CE76AF /* NoteVote.app */,
+				918A22CF1BB1BAFC00CE76AF /* NoteVote.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,9 +247,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		918A22BA1BB1BAFB00CE76AF /* NVBeta */ = {
+		918A22BA1BB1BAFB00CE76AF /* NoteVote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 918A22D81BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NVBeta" */;
+			buildConfigurationList = 918A22D81BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NoteVote" */;
 			buildPhases = (
 				918A22B71BB1BAFB00CE76AF /* Sources */,
 				918A22B81BB1BAFB00CE76AF /* Frameworks */,
@@ -259,14 +259,14 @@
 			);
 			dependencies = (
 			);
-			name = NVBeta;
+			name = NoteVote;
 			productName = Spot_test;
-			productReference = 918A22BB1BB1BAFB00CE76AF /* NVBeta.app */;
+			productReference = 918A22BB1BB1BAFB00CE76AF /* NoteVote.app */;
 			productType = "com.apple.product-type.application";
 		};
-		918A22CE1BB1BAFC00CE76AF /* NVBetaTests */ = {
+		918A22CE1BB1BAFC00CE76AF /* NoteVoteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 918A22DB1BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NVBetaTests" */;
+			buildConfigurationList = 918A22DB1BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NoteVoteTests" */;
 			buildPhases = (
 				918A22CB1BB1BAFC00CE76AF /* Sources */,
 				918A22CC1BB1BAFC00CE76AF /* Frameworks */,
@@ -277,9 +277,9 @@
 			dependencies = (
 				918A22D11BB1BAFC00CE76AF /* PBXTargetDependency */,
 			);
-			name = NVBetaTests;
+			name = NoteVoteTests;
 			productName = Spot_testTests;
-			productReference = 918A22CF1BB1BAFC00CE76AF /* NVBeta.xctest */;
+			productReference = 918A22CF1BB1BAFC00CE76AF /* NoteVote.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -294,6 +294,7 @@
 				TargetAttributes = {
 					918A22BA1BB1BAFB00CE76AF = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = D342QQZXG9;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -309,7 +310,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 918A22B61BB1BAFB00CE76AF /* Build configuration list for PBXProject "NVBeta" */;
+			buildConfigurationList = 918A22B61BB1BAFB00CE76AF /* Build configuration list for PBXProject "NoteVote" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -322,8 +323,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				918A22BA1BB1BAFB00CE76AF /* NVBeta */,
-				918A22CE1BB1BAFC00CE76AF /* NVBetaTests */,
+				918A22BA1BB1BAFB00CE76AF /* NoteVote */,
+				918A22CE1BB1BAFC00CE76AF /* NoteVoteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -386,7 +387,7 @@
 /* Begin PBXTargetDependency section */
 		918A22D11BB1BAFC00CE76AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 918A22BA1BB1BAFB00CE76AF /* NVBeta */;
+			target = 918A22BA1BB1BAFB00CE76AF /* NoteVote */;
 			targetProxy = 918A22D01BB1BAFC00CE76AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -499,6 +500,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,7 +511,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uiowa.Spot-test";
-				PRODUCT_NAME = NVBeta;
+				PRODUCT_NAME = NoteVote;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Spot_test/Spot_test-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -519,6 +523,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,7 +534,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uiowa.Spot-test";
-				PRODUCT_NAME = NVBeta;
+				PRODUCT_NAME = NoteVote;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Spot_test/Spot_test-Bridging-Header.h";
 			};
 			name = Release;
@@ -540,8 +547,8 @@
 				INFOPLIST_FILE = Spot_testTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uiowa.Spot-testTests";
-				PRODUCT_NAME = NVBeta;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVBeta.app/NVBeta";
+				PRODUCT_NAME = NoteVote;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoteVote.app/NoteVote";
 			};
 			name = Debug;
 		};
@@ -552,15 +559,15 @@
 				INFOPLIST_FILE = Spot_testTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uiowa.Spot-testTests";
-				PRODUCT_NAME = NVBeta;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVBeta.app/NVBeta";
+				PRODUCT_NAME = NoteVote;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoteVote.app/NoteVote";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		918A22B61BB1BAFB00CE76AF /* Build configuration list for PBXProject "NVBeta" */ = {
+		918A22B61BB1BAFB00CE76AF /* Build configuration list for PBXProject "NoteVote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				918A22D61BB1BAFC00CE76AF /* Debug */,
@@ -569,7 +576,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		918A22D81BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NVBeta" */ = {
+		918A22D81BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NoteVote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				918A22D91BB1BAFC00CE76AF /* Debug */,
@@ -578,7 +585,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		918A22DB1BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NVBetaTests" */ = {
+		918A22DB1BB1BAFC00CE76AF /* Build configuration list for PBXNativeTarget "NoteVoteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				918A22DC1BB1BAFC00CE76AF /* Debug */,
