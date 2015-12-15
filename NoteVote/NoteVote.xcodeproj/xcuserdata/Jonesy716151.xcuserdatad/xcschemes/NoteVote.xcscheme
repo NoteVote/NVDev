@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "918A22BA1BB1BAFB00CE76AF"
-               BuildableName = "NVBeta.app"
-               BlueprintName = "NVBeta"
-               ReferencedContainer = "container:NVBeta.xcodeproj">
+               BuildableName = "NoteVote.app"
+               BlueprintName = "NoteVote"
+               ReferencedContainer = "container:NoteVote.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,24 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "918A22CE1BB1BAFC00CE76AF"
-               BuildableName = "NVBeta.xctest"
-               BlueprintName = "NVBetaTests"
-               ReferencedContainer = "container:NVBeta.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "918A22BA1BB1BAFB00CE76AF"
-            BuildableName = "NVBeta.app"
-            BlueprintName = "NVBeta"
-            ReferencedContainer = "container:NVBeta.xcodeproj">
+            BuildableName = "NoteVote.app"
+            BlueprintName = "NoteVote"
+            ReferencedContainer = "container:NoteVote.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "918A22BA1BB1BAFB00CE76AF"
-            BuildableName = "NVBeta.app"
-            BlueprintName = "NVBeta"
-            ReferencedContainer = "container:NVBeta.xcodeproj">
+            BuildableName = "NoteVote.app"
+            BlueprintName = "NoteVote"
+            ReferencedContainer = "container:NoteVote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "918A22BA1BB1BAFB00CE76AF"
-            BuildableName = "NVBeta.app"
-            BlueprintName = "NVBeta"
-            ReferencedContainer = "container:NVBeta.xcodeproj">
+            BuildableName = "NoteVote.app"
+            BlueprintName = "NoteVote"
+            ReferencedContainer = "container:NoteVote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
