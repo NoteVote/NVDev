@@ -11,8 +11,7 @@ import Parse
 import Bolts
 
 let userDefaults = NSUserDefaults.standardUserDefaults()
-let serverLinkold = RoomFinder()
-let serverLink = ServerLink()
+let serverLink = RoomFinder()
 let searchHandler = SearchHandler()
 
 @UIApplicationMain

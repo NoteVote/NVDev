@@ -46,14 +46,14 @@ class RoomFinder {
                     for object in objects {
                         let roomID:String = object.valueForKey("roomID") as! String
                         let roomName:String = object.valueForKey("roomName") as! String
-                        serverLink.rooms.append((roomName,roomID))
+                        serverLink.Rooms.append((roomName,roomID))
                     }
                 }
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
             }
-            completion(result: serverLink.rooms)
+            completion(result: serverLink.Rooms)
         }
     }
     
