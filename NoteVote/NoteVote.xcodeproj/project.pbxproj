@@ -41,7 +41,8 @@
 		AD23D4C31BE2CA7F000B9F14 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4C21BE2CA7F000B9F14 /* Social.framework */; };
 		AD2483B21BE7E06400432200 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2483B11BE7E06400432200 /* ParseUI.framework */; };
 		AD4349FC1C175DA3005104A9 /* SearchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4349FB1C175DA2005104A9 /* SearchHandler.swift */; };
-		AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */; };
+		AD631E231C502A28002A151B /* ServerLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD631E221C502A28002A151B /* ServerLink.swift */; };
+		AD631E251C502A88002A151B /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD631E241C502A88002A151B /* Song.swift */; };
 		AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */; };
 		AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */; };
 /* End PBXBuildFile section */
@@ -96,7 +97,8 @@
 		AD23D4C21BE2CA7F000B9F14 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AD2483B11BE7E06400432200 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		AD4349FB1C175DA2005104A9 /* SearchHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHandler.swift; sourceTree = "<group>"; };
-		AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomFinder.swift; sourceTree = "<group>"; };
+		AD631E221C502A28002A151B /* ServerLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerLink.swift; sourceTree = "<group>"; };
+		AD631E241C502A88002A151B /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRoomVC.swift; path = ../CreateRoomVC.swift; sourceTree = "<group>"; };
 		AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveRoomVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,10 +167,11 @@
 				91E4FB2C1BEC069D0044762C /* HostRoomVC.swift */,
 				918A22C01BB1BAFB00CE76AF /* ViewController.swift */,
 				918A22C21BB1BAFB00CE76AF /* Main.storyboard */,
+				AD631E221C502A28002A151B /* ServerLink.swift */,
+				AD631E241C502A88002A151B /* Song.swift */,
 				AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */,
 				AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */,
 				9118BF851BBB2E5300893CF8 /* HomeVC.swift */,
-				AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */,
 				910808601C0DF5B000FBF037 /* SearchVC.swift */,
 				918A22C51BB1BAFB00CE76AF /* Assets.xcassets */,
 				918A22C71BB1BAFB00CE76AF /* LaunchScreen.storyboard */,
@@ -353,12 +356,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD631E251C502A88002A151B /* Song.swift in Sources */,
 				9118BF8B1BBDE80700893CF8 /* ENSideMenu.swift in Sources */,
 				91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */,
 				910808631C0DF9CB00FBF037 /* SearchTableCell.swift in Sources */,
 				9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */,
+				AD631E231C502A28002A151B /* ServerLink.swift in Sources */,
 				9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */,
-				AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */,
 				9118BF8C1BBDE80700893CF8 /* ENSideMenuNavigationController.swift in Sources */,
 				9118BF8D1BBDE80700893CF8 /* MyMenuTableViewController.swift in Sources */,
 				AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */,
