@@ -173,9 +173,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="JJi-HH-VLA">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="556"/>
-                                </variation>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EiN-zL-hc0">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -191,9 +188,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="64" width="560" height="516"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="JRy-CS-J1I" id="KG1-ze-cPY"/>
                                     <outlet property="delegate" destination="JRy-CS-J1I" id="70c-J9-Cz9"/>
@@ -293,9 +287,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="xda-8n-lrD">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                </variation>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-bL-JoP">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -321,8 +312,7 @@
                                                             <exclude reference="U8p-tJ-a5K"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="34" width="174" height="25"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="U8p-tJ-a5K"/>
                                                         </mask>
@@ -349,8 +339,7 @@
                                                             <exclude reference="ycD-No-Sbf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="182" y="9" width="50" height="50"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="rzu-ug-x59"/>
                                                             <include reference="ycD-No-Sbf"/>
@@ -373,8 +362,7 @@
                                                             <exclude reference="0rx-FP-gGA"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="0.0" width="174" height="34"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <exclude reference="0rx-FP-gGA"/>
                                                         </mask>
@@ -455,9 +443,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="64" width="560" height="516"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="ifF-hM-bMC" id="Sre-ut-MGL"/>
                                     <outlet property="delegate" destination="ifF-hM-bMC" id="bOf-eQ-fah"/>
@@ -556,9 +541,6 @@
                             </searchBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="HKV-HG-cDX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                </variation>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mcm-au-itb">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -679,9 +661,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="64" width="560" height="516"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="4sg-nC-llQ" id="Rf8-K7-3k5"/>
                                     <outlet property="delegate" destination="4sg-nC-llQ" id="aMz-qk-dIN"/>
@@ -769,17 +748,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dj" translatesAutoresizingMaskIntoConstraints="NO" id="BgE-zb-ZOo">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Room Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Di6-aP-Poa">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="220" y="215" width="160" height="30"/>
-                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
@@ -1086,7 +1059,6 @@
                         <outlet property="trackArtist" destination="4KZ-F9-kwt" id="n76-Ex-vi1"/>
                         <outlet property="trackTitle" destination="fMT-y2-Lcl" id="xPP-jh-9ti"/>
                         <segue destination="4sg-nC-llQ" kind="show" identifier="Host_Search" id="72C-Fl-sSr"/>
-                        <segue destination="Cr3-3m-eo6" kind="show" action="showDetailViewController:sender:" id="Jvl-oR-UTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4t4-Lb-xPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1103,10 +1075,9 @@
         <image name="unvoted" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NUq-yw-HRS"/>
-        <segue reference="tYq-9N-r8a"/>
+        <segue reference="2vZ-zX-Cv8"/>
+        <segue reference="wup-XS-uQE"/>
         <segue reference="XLL-xL-9Q6"/>
-        <segue reference="Ho6-XE-rV5"/>
-        <segue reference="SGF-lD-RXO"/>
+        <segue reference="tYq-9N-r8a"/>
     </inferredMetricsTieBreakers>
 </document>

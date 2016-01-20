@@ -65,13 +65,12 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let customColor = UIView()
         customColor.backgroundColor = UIColor.clearColor()
         cell.selectedBackgroundView = customColor
-        print(serverLink.musicList)
         if(!serverLink.musicList.isEmpty){
-            cell.songURI = serverLink.musicList[indexPath.row][0] as! String
-            cell.songTitle.text! = serverLink.musicList[indexPath.row][1] as! String
-            cell.artistLabel.text! = serverLink.musicList[indexPath.row][2] as! String
-            let voteNum:String = String(serverLink.musicList[indexPath.row][3] as! Int)
-            cell.voteButton.setTitle(voteNum, forState: UIControlState.Normal)
+            let object:PFObject = serverLink.musicList[indexPath.row]
+            cell.artistLabel.text! = object.objectForKey("trackArtist") as! String
+            cell.songTitle.text! = object.objectForKey("trackTitle") as! String
+            cell.songURI = object.objectForKey("uri") as! String
+            cell.voteButton.setTitle(String(object.objectForKey("votes") as! Int), forState: UIControlState.Normal)
             //initializing cells to voted state or unvoted state.
             let votes = serverLink.songsVoted[(userDefaults.objectForKey("roomID") as! String)]
             if(votes != nil){
@@ -90,11 +89,11 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func refresh(sender:AnyObject)
     {
-        serverLink.queueForRoomID(userDefaults.objectForKey("roomID") as! String){
-            (result: [[AnyObject]]) in
+        serverLink.getQueue(){
+            (result: [PFObject]) in
             serverLink.musicList = result
             PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"active"], block: nil)
-            serverLink.SortMusicList()
+            serverLink.sortMusicList()
             self.tableView.reloadData()
         }
         self.refreshControl.endRefreshing()
@@ -133,11 +132,11 @@ class ActiveRoomVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.title = userDefaults.objectForKey("currentRoom") as! String
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorColor = UIColor.lightGrayColor()
-        serverLink.queueForRoomID(userDefaults.objectForKey("roomID") as! String){
-            (result: [[AnyObject]]) in
+        serverLink.getQueue(){
+            (result: [PFObject]) in
             serverLink.musicList = result
 			PFAnalytics.trackEventInBackground("getqueue", dimensions: ["where":"active"], block: nil)
-            serverLink.SortMusicList()
+            serverLink.sortMusicList()
             self.tableView.reloadData()
         }
         

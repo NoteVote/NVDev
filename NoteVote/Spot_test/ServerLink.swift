@@ -19,7 +19,7 @@ class ServerLink {
     
     private var rooms:[PFObject] = []
     private var partyObject:PFObject!
-    var songsVoted:[String:[PFObject]] = [:]
+    var songsVoted:[String:[String]] = [:]
     var musicOptions:[Song] = []
     var musicList:[PFObject] = []
     var searchList:[SPTPartialTrack] = []
@@ -81,6 +81,7 @@ class ServerLink {
             
             PFAnalytics.trackEventInBackground("createroom", block: nil)
             if (success) {
+                self.partyObject = partyObject
                 // The object has been saved.
                 
             } else {
@@ -118,6 +119,11 @@ class ServerLink {
         trackObject["trackTitle"] = trackTitle
         trackObject["trackArtist"] = trackArtist
         trackObject["uri"] = uri
+        trackObject["votes"] = 1
+        do{
+            try partyObject.fetch()
+        }
+        catch{}
         let relation:PFRelation = partyObject.relationForKey("queue")
         relation.addObject(trackObject)
     }
@@ -190,14 +196,16 @@ class ServerLink {
         
     }
     
-    func getQueue(){
+    func getQueue(completion: (result: [PFObject]) -> Void){
         do {
             let relation = partyObject.relationForKey("queue")
             relation.query()!.findObjectsInBackgroundWithBlock{
                 (objects:[PFObject]?, error:NSError?) -> Void in
                 if(error == nil && objects != nil){
-                    serverLink.musicList = objects!
+                    self.musicList = objects!
                 }
+                
+                completion(result: self.musicList)
             }
         }
     }
@@ -223,6 +231,12 @@ class ServerLink {
             }
         }
         musicList = temp
+    }
+    
+    func songsVotedCheck(){
+        if(!songsVoted.keys.contains(userDefaults.objectForKey("roomID") as! String)){
+            songsVoted[(userDefaults.objectForKey("roomID") as! String)] = []
+        }
     }
     
     func setMusicOptions(){

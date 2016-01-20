@@ -42,11 +42,12 @@ class CreateRoomVC: UIViewController, ENSideMenuDelegate {
         performSegueWithIdentifier("CreateRoom_Home", sender: nil)
     }
     
+    //TODO: Still need to add slide button for private Switch.
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
         print(roomName.text!)
         serverLink.musicList = []
         serverLink.songsVoted[session!.canonicalUsername] = []
-        serverLink.addRoom(roomName.text!, id: session!.canonicalUsername, priv: false)
+        serverLink.addParty(roomName.text!, partyID: session!.canonicalUsername, priv: false)
         userDefaults.setObject(roomName.text!, forKey: "currentRoom")
         userDefaults.setObject(session!.canonicalUsername, forKey: "roomID")
         userDefaults.synchronize()
