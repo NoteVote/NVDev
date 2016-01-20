@@ -178,7 +178,7 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
             self.trackTitle.text = serverLink.trackTitle
             self.albumImage.image = serverLink.albumArt
         }
-//      startSession()
+//        startSession()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

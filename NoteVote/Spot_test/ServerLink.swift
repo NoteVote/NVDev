@@ -94,15 +94,25 @@ class ServerLink {
      * deletes a party object from the Parse PartyObject class.
      * -takes in a String(roomID) -> hosts Spotify ID, used to find correct object for deletion.
      */
-    func deleteRoom(roomID: String) {
+    func deleteRoom() {
         let query = PFQuery(className: "PartyObject")
         query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             PFAnalytics.trackEventInBackground("deleteroom", block: nil)
-            for object in objects! {
-                object.deleteInBackground()
+            if(error == nil && objects != nil){
+                objects![0].deleteInBackground()
+            }
+        }
+        let query2 = PFQuery(className: "SongLibrary")
+        query2.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
+        query2.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if(error == nil && objects != nil){
+                for object in objects!{
+                    object.deleteInBackground()
+                }
             }
         }
     }
@@ -120,12 +130,9 @@ class ServerLink {
         trackObject["trackArtist"] = trackArtist
         trackObject["uri"] = uri
         trackObject["votes"] = 1
-        do{
-            try partyObject.fetch()
-        }
-        catch{}
-        let relation:PFRelation = partyObject.relationForKey("queue")
-        relation.addObject(trackObject)
+        trackObject["partyID"] = self.partyObject.objectForKey("partyID") as! String
+        trackObject.saveInBackground()
+        serverLink.musicList.append(trackObject)
     }
     
     /**
@@ -134,15 +141,15 @@ class ServerLink {
      * uses that to find the correct song.
      */
     func increment(songURI:String){
-        let relation:PFRelation = partyObject.relationForKey("queue")
-        let query:PFQuery? = relation.query()?.whereKey("uri", equalTo: songURI)
-        if(query != nil){
-            query?.findObjectsInBackgroundWithBlock {
+        let query = PFQuery(className: "SongLibrary")
+        query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
+        query.whereKey("uri", equalTo: songURI)
+        query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
-                if(error == nil){
+                if(error == nil && objects != nil){
                     objects![0].incrementKey("votes")
+                    objects![0].saveInBackground()
                 }
-            }
         }
     }
     
@@ -152,18 +159,18 @@ class ServerLink {
      * uses that to find the correct song.
      */
     func decrement(songURI:String){
-        let relation:PFRelation = partyObject.relationForKey("queue")
-        let query:PFQuery? = relation.query()?.whereKey("uri", equalTo: songURI)
-        if(query != nil){
-            query?.findObjectsInBackgroundWithBlock {
-                (objects: [PFObject]?, error: NSError?) -> Void in
-                if(error == nil){
-                    objects![0].incrementKey("votes", byAmount: -1)
-                }
+        let query = PFQuery(className: "SongLibrary")
+        query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
+        query.whereKey("uri", equalTo: songURI)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if(error == nil && objects != nil){
+                objects![0].incrementKey("votes", byAmount: -1)
+                objects![0].saveInBackground()
             }
         }
     }
-    
+
     /**
      * pops the top item off of musicList, Which should be the highest voted song.
      * then calls removeSong passing along the top song. while removing it form itself.
@@ -179,33 +186,37 @@ class ServerLink {
     }
     
     func removeSong(topSong:PFObject){
-        let relation:PFRelation = partyObject.relationForKey("queue")
-        relation.removeObject(topSong)
+        let query = PFQuery(className: "SongLibrary")
+        query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
+        query.whereKey("uri", equalTo: topSong.objectForKey("uri") as! String)
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error: NSError?) -> Void in
+            PFAnalytics.trackEventInBackground("deleteroom", block: nil)
+            if(error == nil && objects != nil){
+                objects![0].deleteInBackground()
+            }
+        }
     }
     
     func syncGetQueue(){
-        do {
-            let relation = partyObject.relationForKey("queue")
-            let query:PFQuery = relation.query()!
-            let objects:[PFObject] = try query.findObjects()
-            musicList = objects
+        let query = PFQuery(className: "SongLibrary")
+        query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
+        do{
+            try self.musicList = query.findObjects()
         }
-        catch {
-            
-        }
-        
+        catch{ print("synchronise query failed" ) }
     }
     
     func getQueue(completion: (result: [PFObject]) -> Void){
-        do {
-            let relation = partyObject.relationForKey("queue")
-            relation.query()!.findObjectsInBackgroundWithBlock{
-                (objects:[PFObject]?, error:NSError?) -> Void in
-                if(error == nil && objects != nil){
-                    self.musicList = objects!
-                }
-                
+        let query = PFQuery(className: "SongLibrary")
+        query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error: NSError?) -> Void in
+            PFAnalytics.trackEventInBackground("deleteroom", block: nil)
+            if(error == nil){
+                self.musicList = objects!
                 completion(result: self.musicList)
+
             }
         }
     }

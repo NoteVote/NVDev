@@ -93,7 +93,7 @@ class MyMenuTableViewController: UITableViewController {
         case 0:
 			if menuOptions[indexPath.row] == "Close Room" {
 				destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Home")
-				serverLink.deleteRoom(userDefaults.objectForKey("roomID") as! String)
+				serverLink.deleteRoom()
 				serverLink.currentURI = ""
 			} else { //if equal to "Log out"
 				destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Login")
