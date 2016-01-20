@@ -41,9 +41,11 @@
 		AD23D4C31BE2CA7F000B9F14 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD23D4C21BE2CA7F000B9F14 /* Social.framework */; };
 		AD2483B21BE7E06400432200 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2483B11BE7E06400432200 /* ParseUI.framework */; };
 		AD4349FC1C175DA3005104A9 /* SearchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4349FB1C175DA2005104A9 /* SearchHandler.swift */; };
+		AD67AC8A1C4FEB6A0030FDC1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67AC891C4FEB6A0030FDC1 /* Song.swift */; };
 		AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */; };
 		AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */; };
 		AD6B9FD71BC71F9E0079424F /* ActiveRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */; };
+		ADBB77881C2853C200E37330 /* ServerLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB77871C2853C200E37330 /* ServerLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,9 +98,11 @@
 		AD23D4C21BE2CA7F000B9F14 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AD2483B11BE7E06400432200 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		AD4349FB1C175DA2005104A9 /* SearchHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHandler.swift; sourceTree = "<group>"; };
+		AD67AC891C4FEB6A0030FDC1 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomFinder.swift; sourceTree = "<group>"; };
 		AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRoomVC.swift; path = ../CreateRoomVC.swift; sourceTree = "<group>"; };
 		AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveRoomVC.swift; sourceTree = "<group>"; };
+		ADBB77871C2853C200E37330 /* ServerLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerLink.swift; path = ../ServerLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +172,12 @@
 				AD6B9FD61BC71F9E0079424F /* ActiveRoomVC.swift */,
 				AD6B9FD41BC7197D0079424F /* CreateRoomVC.swift */,
 				9118BF851BBB2E5300893CF8 /* HomeVC.swift */,
-				AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */,
 				910808601C0DF5B000FBF037 /* SearchVC.swift */,
+				AD6B9FD01BC6F48C0079424F /* RoomFinder.swift */,
+				ADBB77871C2853C200E37330 /* ServerLink.swift */,
 				918A22C51BB1BAFB00CE76AF /* Assets.xcassets */,
 				918A22C71BB1BAFB00CE76AF /* LaunchScreen.storyboard */,
+				AD67AC891C4FEB6A0030FDC1 /* Song.swift */,
 				918A22CA1BB1BAFB00CE76AF /* Info.plist */,
 				918A22E51BB1BCEA00CE76AF /* Spot_test-Bridging-Header.h */,
 			);
@@ -290,7 +296,7 @@
 				TargetAttributes = {
 					918A22BA1BB1BAFB00CE76AF = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 625732G463;
+						DevelopmentTeam = C39ZBZ8S99;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -357,6 +363,7 @@
 				91EFD91B1BBB163200818FA7 /* SpotifyAuth.swift in Sources */,
 				910808631C0DF9CB00FBF037 /* SearchTableCell.swift in Sources */,
 				9118BF861BBB2E5300893CF8 /* HomeVC.swift in Sources */,
+				ADBB77881C2853C200E37330 /* ServerLink.swift in Sources */,
 				9118BF8E1BBDE80700893CF8 /* MyNavigationController.swift in Sources */,
 				AD6B9FD11BC6F48C0079424F /* RoomFinder.swift in Sources */,
 				9118BF8C1BBDE80700893CF8 /* ENSideMenuNavigationController.swift in Sources */,
@@ -366,6 +373,7 @@
 				9118BF841BBB1F9900893CF8 /* SessionHandler.swift in Sources */,
 				918A22C11BB1BAFB00CE76AF /* ViewController.swift in Sources */,
 				918A22BF1BB1BAFB00CE76AF /* AppDelegate.swift in Sources */,
+				AD67AC8A1C4FEB6A0030FDC1 /* Song.swift in Sources */,
 				AD6B9FD51BC7197D0079424F /* CreateRoomVC.swift in Sources */,
 				AD4349FC1C175DA3005104A9 /* SearchHandler.swift in Sources */,
 				910808611C0DF5B000FBF037 /* SearchVC.swift in Sources */,

@@ -11,7 +11,7 @@ import Parse
 
 class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITableViewDelegate{
     
-    var roomsNearby:[(String,String)] = []
+    var roomsNearby:[PFObject] = []
     var refreshControl:UIRefreshControl!
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -65,12 +65,8 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         //TODO: needs to return the number of rooms in the area.
     }
     
-    /*CurrentPlayer Selected and moves to next page*/
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        userDefaults.setObject(self.roomsNearby[indexPath.row].1, forKey: "roomID")
-        //takes name of current room and saves it.
-        userDefaults.setObject(self.roomsNearby[indexPath.row].0, forKey: "currentRoom")
-        userDefaults.synchronize()
+        serverLink.partySelect(indexPath.row)
         self.performSegueWithIdentifier("Home_ActiveRoom", sender: nil)
         
     }
@@ -84,7 +80,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
         cell.selectedBackgroundView = customColor
         
         cell.textLabel!.textColor = UIColor(red: 125/255, green: 205/255, blue: 3/255, alpha: 1.0)
-        cell.textLabel?.text = roomsNearby[indexPath.row].0
+        cell.textLabel?.text = roomsNearby[indexPath.row].objectForKey("partyName") as! String
         cell.textLabel?.font = UIFont.systemFontOfSize(30)
         //TODO: set cell atributes.
         return cell
@@ -92,8 +88,8 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
     
     func refresh(sender:AnyObject)
     {
-        serverLink.findRooms(){
-            (result: [(String,String)]) in
+        serverLink.findRooms() {
+            (result: [PFObject]) in
             self.roomsNearby = result
             self.tableView.reloadData()
         }
@@ -107,7 +103,7 @@ class HomeVC: UIViewController, ENSideMenuDelegate, UITableViewDataSource, UITab
 
         //Handles result from completion handler.
         serverLink.findRooms(){
-            (result: [(String,String)]) in
+            (result: [PFObject]) in
             self.roomsNearby = result
             self.tableView.reloadData()
         }
