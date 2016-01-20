@@ -16,11 +16,11 @@ class SearchTableCell: UITableViewCell {
 
     @IBAction func QueueButtonPressed(sender: UIButton) {
         if(queued){
-            QueueButton.setBackgroundImage(UIImage(named: "unvoted"), forState: UIControlState.Normal)
+            QueueButton.setBackgroundImage(UIImage(named: "addSong"), forState: UIControlState.Normal)
             queued = !queued
         
         } else {
-            QueueButton.setBackgroundImage(UIImage(named: "voted"), forState: UIControlState.Normal)
+            QueueButton.setBackgroundImage(UIImage(named: "songAdded"), forState: UIControlState.Normal)
             queued = !queued
             searchHandler.getURIwithPartial(songURI){
                 (result: String) in
