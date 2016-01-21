@@ -179,16 +179,22 @@ class ServerLink {
     func pop()->String{
         sortMusicList()
         let uri:String = musicList.first!.objectForKey("uri") as! String
-        serverLink.removeSong(musicList.first!)
+        serverLink.removeSong(uri)
         musicList.removeFirst()
         PFAnalytics.trackEventInBackground("savequeue", dimensions: ["where":"host"], block: nil)
         return uri
     }
     
-    func removeSong(topSong:PFObject){
+    
+    /**
+     * removes the song with the URI given that matches the partyID the host has.
+     * -Paramaters:
+     *      uri:String -> used to find the song to remove.
+     */
+    func removeSong(uri:String){
         let query = PFQuery(className: "SongLibrary")
         query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
-        query.whereKey("uri", equalTo: topSong.objectForKey("uri") as! String)
+        query.whereKey("uri", equalTo: uri)
         query.findObjectsInBackgroundWithBlock {
             (objects:[PFObject]?, error: NSError?) -> Void in
             PFAnalytics.trackEventInBackground("deleteroom", block: nil)
@@ -198,6 +204,9 @@ class ServerLink {
         }
     }
     
+    /**
+     * Synchronise way to get an updated list of music in the song queue.
+     */
     func syncGetQueue(){
         let query = PFQuery(className: "SongLibrary")
         query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
@@ -207,6 +216,9 @@ class ServerLink {
         catch{ print("synchronise query failed" ) }
     }
     
+    /**
+     * Asynchronise way to get an updated list of music in the song queue.
+     */
     func getQueue(completion: (result: [PFObject]) -> Void){
         let query = PFQuery(className: "SongLibrary")
         query.whereKey("partyID", equalTo: partyObject.objectForKey("partyID") as! String)
@@ -216,12 +228,13 @@ class ServerLink {
             if(error == nil){
                 self.musicList = objects!
                 completion(result: self.musicList)
-
             }
         }
     }
     
-    
+    /**
+     * Sorts musicList in serverLink, based upon votes, highest being the first element of the list.
+     */
     func sortMusicList(){
         var temp:[PFObject] = []
         for object in musicList {
@@ -244,12 +257,20 @@ class ServerLink {
         musicList = temp
     }
     
+    /**
+     * On party entry it checks to see if the user has voted on any songs in the party
+     *      if they have it sets songsVoted to that list of song titles.
+     */
     func songsVotedCheck(){
         if(!songsVoted.keys.contains(userDefaults.objectForKey("roomID") as! String)){
             songsVoted[(userDefaults.objectForKey("roomID") as! String)] = []
         }
     }
     
+    /**
+     * Changes songs from Spotify objects into Song objects.
+     * saves all the Song objects in serverLink.musicOptions.
+     */
     func setMusicOptions(){
         self.musicOptions = []
         for track in self.searchList {
