@@ -115,6 +115,10 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, EN
         self.searchBars.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        serverLink.addSongBatch()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,7 @@ class ServerLink {
     var artistName:String?
     var currentURI:String?
     
+    var songBatch:[(String,String,String)] = []
     private var rooms:[PFObject] = []
     private var partyObject:PFObject!
     var songsVoted:[String:[String]] = [:]
@@ -124,15 +125,17 @@ class ServerLink {
      * -takes in a String(uri) -> Spotify track URI of the song.
      * uses these variables to create a song object in Parse.
      */
-    func addSong(trackTitle:String, trackArtist:String, uri:String){
-        let trackObject = PFObject(className: "SongLibrary")
-        trackObject["trackTitle"] = trackTitle
-        trackObject["trackArtist"] = trackArtist
-        trackObject["uri"] = uri
-        trackObject["votes"] = 1
-        trackObject["partyID"] = self.partyObject.objectForKey("partyID") as! String
-        trackObject.saveInBackground()
-        serverLink.musicList.append(trackObject)
+    func addSongBatch(){
+        for song in self.songBatch{
+            let trackObject = PFObject(className: "SongLibrary")
+            trackObject["trackTitle"] = song.0
+            trackObject["trackArtist"] = song.1
+            trackObject["uri"] = song.2
+            trackObject["votes"] = 1
+            trackObject["partyID"] = self.partyObject.objectForKey("partyID") as! String
+            trackObject.saveInBackground()
+            serverLink.musicList.append(trackObject)
+        }
     }
     
     /**
@@ -256,6 +259,23 @@ class ServerLink {
         }
         musicList = temp
     }
+    
+    func removeSongFromBatch(songTitle:String, trackArtist:String){
+        if(!self.songBatch.isEmpty){
+            for i in 0...songBatch.count-1 {
+                if(songBatch[i].0 == songTitle && songBatch[i].1 == trackArtist){
+                    songBatch.removeAtIndex(i)
+                    return
+                }
+            }
+        }
+    }
+    
+    func addSongToBatch(songTitle:String, trackArtist:String, uri:String){
+        let song:(String,String,String) = (songTitle,trackArtist,uri)
+        self.songBatch.append(song)
+    }
+    
     
     /**
      * On party entry it checks to see if the user has voted on any songs in the party

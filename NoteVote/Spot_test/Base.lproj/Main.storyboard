@@ -751,7 +751,7 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Room Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Di6-aP-Poa">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -1075,9 +1075,9 @@
         <image name="unvoted" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2vZ-zX-Cv8"/>
-        <segue reference="wup-XS-uQE"/>
+        <segue reference="Ho6-XE-rV5"/>
         <segue reference="XLL-xL-9Q6"/>
         <segue reference="tYq-9N-r8a"/>
+        <segue reference="NUq-yw-HRS"/>
     </inferredMetricsTieBreakers>
 </document>
