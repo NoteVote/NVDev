@@ -16,7 +16,46 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     @IBOutlet weak var trackArtist: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    //TODO: Make songQueue a list of Dictionaries. Each dictionary has title, artist, and votes as keys.
+    var dropDownViewIsDisplayed = false
+    let list = ["hello","what","where","when","why"]
+    
+    @IBOutlet weak var dropDownView: UIView!
+    
+    @IBAction func panGesture(sender: UIPanGestureRecognizer) {
+        
+    }
+    @IBAction func dropDownButtonPressed(sender: UIButton) {
+        if(dropDownViewIsDisplayed){
+            hideDropDownView()
+            self.dropDownViewIsDisplayed = false
+        }
+        else{
+            showDropDownView()
+            self.dropDownViewIsDisplayed = true
+        }
+    }
+    
+    func hideDropDownView() {
+        var frame:CGRect = self.dropDownView.frame
+        frame.origin.y = -frame.size.height + 80
+        self.animateDropDownToFrame(frame) {
+        }
+    }
+    
+    func showDropDownView() {
+        var frame:CGRect = self.dropDownView.frame
+        frame.origin.y = 64
+        self.animateDropDownToFrame(frame) {
+        }
+    }
+    
+    func animateDropDownToFrame(frame: CGRect, completion:() -> Void) {
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
+            self.dropDownView.frame = frame
+            }, completion:  { finished in
+        })
+    }
+    
     
     private var player:SPTAudioStreamingController?
     private let authController = SpotifyAuth()
@@ -195,5 +234,9 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
         if !serverLink.musicList.isEmpty {
             startSession()
         }
+        let height:CGFloat = self.dropDownView.frame.size.height
+        let width:CGFloat = self.dropDownView.frame.size.width
+        self.dropDownView.frame = CGRectMake(0, self.view.bounds.height/2, width, self.view.bounds.height)
+        self.dropDownViewIsDisplayed = false
     }
 }
