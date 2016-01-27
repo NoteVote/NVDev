@@ -16,22 +16,24 @@ class HostRoomVC: UIViewController, SPTAudioStreamingPlaybackDelegate, ENSideMen
     @IBOutlet weak var trackArtist: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var dropDownButton: UIButton!
     var dropDownViewIsDisplayed = false
     let list = ["hello","what","where","when","why"]
-    
     @IBOutlet weak var dropDownView: UIView!
     
     @IBAction func panGesture(sender: UIPanGestureRecognizer) {
-        
     }
+    
     @IBAction func dropDownButtonPressed(sender: UIButton) {
         if(dropDownViewIsDisplayed){
             hideDropDownView()
             self.dropDownViewIsDisplayed = false
+            dropDownButton.setBackgroundImage(UIImage(named: "dropDown"), forState: UIControlState.Normal)
         }
         else{
             showDropDownView()
             self.dropDownViewIsDisplayed = true
+            dropDownButton.setBackgroundImage(UIImage(named: "dropUp"), forState: UIControlState.Normal)
         }
     }
     
